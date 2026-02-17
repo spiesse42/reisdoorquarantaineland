@@ -16,13 +16,12 @@ const updates = [
         tijd: "10:30",
         bericht: "Ik ben geïnstalleerd op de kamer. Het uitzicht is gelukkig best oké! Nu wachten op de eerste onderzoeken. De nieuwe website ziet er alvast een stuk vrolijker uit!",
         // VUL HIERONDER DE EXACTE NAAM IN ZOALS HIJ OP GITHUB STAAT:
-        // fotoUrl: "afbeeldingen/JOUW_BESTANDSNAAM_HIER_INVULLEN.jpg" 
+        fotoUrl: "afbeeldingen/Intake.jpeg" 
     },
     {
-        datum: "16 Februari 2026",
+        datum: "18 Februari 2026",
         tijd: "09:00",
         bericht: "Goedemorgen allemaal. Ik ben net aangekomen in het ziekenhuis. De verpleging is hier erg vriendelijk."
-        fotoUrl: "afbeeldingen/Intake.jpeg"
     },
     {
         datum: "17 Februari 2026",
@@ -92,4 +91,3 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
-
