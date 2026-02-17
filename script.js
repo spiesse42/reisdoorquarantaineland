@@ -38,7 +38,7 @@ iets minder lekker is dan deze thuis beslissen we om onze neus te volgen en nog 
 De verpleegster stond ons al op te wachten aan de schuifdeur, klaar om ons naar mijn buitenverblijf te begeleiden.
 
 Zon, zee en strand wordt het niet helaas. 24 graden en droog, dat wel voor de komende weken.
-       `,                                    <-- Eerst tekst afsluiten met backtick en komma
+       `,
 fotoUrl: "afbeeldingen/Intake.jpeg"
         // Geen foto hier, dat mag.
     }, // <--- VERGEET DEZE KOMMA NIET
@@ -120,6 +120,7 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
+
 
 
 
