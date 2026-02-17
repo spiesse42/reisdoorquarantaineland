@@ -2,14 +2,28 @@
 
 // DEEL 1: Status
 const huidigeStatus = {
-    locatie: "AZ Kamer 304",
-    stemming: "Hoopvol & moe",
-    bezoek: "Na de operatie"
+    locatie: "AZ Delta kamer 510",
+    stemming: "Hoopvol & chemotioneel",
+    bezoek: "De gewone bezoekuren: tussen 14u en 20u"
 };
 
 // DEEL 2: Updates
 const updates = [
    {
+        datum: "17 Februari 2026",
+        tijd: "05:00u",
+        bericht: `
+Nacht 1 van ... zit er op. De kortheid van de nachtheid heeft niet moeten onderdoen aan hoe ik geslapen heb. Redelijke nacht gehad, mede dankzij
+mijn eigen hoofdkussen en het ontbreken van een snurkende gebuur.
+
+Binnen een paar uur begint de aftelklok echt wel dicht bij 11u te komen. Belangrijk moment 1 van 2 staat dan op den agenda: 1 zware cocktail om
+mijne binnenkant voor te bereiden (lees: kapot te maken) zodat de stamcellen vanaf donderdag hun werk kunnen beginnen doen.
+
+Laat maar komen, ben er klaar voor!
+        `,
+
+    }, 
+{
         datum: "16 Februari 2026",
         tijd: "10:45u",
         bericht: `
@@ -27,10 +41,11 @@ Zo ben je vlug patiënt, nou nou. Deze namiddg nog een zenuw- en spieronderzoek 
 Op naar het volgende zou ik zeggen...
         `,
         fotoUrl: "afbeeldingen/centrale catheter.JPG"
-    }, {
-        datum: "16 Februari 2026",
-        tijd: "08:45u",
-        bericht: `
+    }, 
+{
+    datum: "16 Februari 2026",
+    tijd: "08:45u",
+    bericht: `
 Goedemorgen allemaal. 
 Ik ben net aangekomen in het ziekenhuis, mooi op tijd om me tegen 9u aan te melden op de afdeling Hematologie. Omdat we alletwee weten dat de ziekenhuiskoffie net 
 iets minder lekker is dan deze thuis beslissen we om onze neus te volgen en nog rap een koffieke te gaan drinken in de cafetaria. Slurp slurp en hop naar verdieping 2. 
@@ -121,6 +136,7 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
+
 
 
 
