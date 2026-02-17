@@ -4,9 +4,9 @@
 
 // DEEL 1: De statusbalk bovenaan
 const huidigeStatus = {
-    locatie: "AZ Ziekenhuis, Kamer 304",
-    stemming: "Hoopvol & beetje moe",
-    bezoek: "Even wachten tot na de operatie" // Bijv: "Welkom tussen 14u-16u"
+    locatie: "AZ Delta, Kamer 510",
+    stemming: "Hoopvol & positief",
+    bezoek: "Voorlopig volgens de gewone bezoekuren tussen 14u-20u" // Bijv: "Welkom tussen 14u-16u"
 };
 
 // DEEL 2: De updates
@@ -18,9 +18,9 @@ const updates = [
         bericht: "Goedemorgen allemaal. Ik ben net aangekomen in het ziekenhuis. De verpleging is hier erg vriendelijk. Ik installeer me nu en wacht op de dokter voor de laatste briefing."
     },
     {
-        datum: "17 Februari 2026",
-        tijd: "20:00",
-        bericht: "De koffer is gepakt! Morgen is de grote dag. Ik ben best zenuwachtig, maar ook blij dat het eindelijk gaat gebeuren. Ik probeer jullie via deze weg op de hoogte te houden."
+        datum: "15 Februari 2026",
+        tijd: "22:00",
+        bericht: "We keren ruim een jaar terug in de tijd. We spreken eind 2024, begin 2025."
     }
 ];
 
@@ -72,4 +72,5 @@ function laadUpdates() {
     });
 
     timelineDiv.innerHTML = html;
+
 }
