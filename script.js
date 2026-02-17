@@ -19,9 +19,10 @@ const updates = [
         // fotoUrl: "afbeeldingen/JOUW_BESTANDSNAAM_HIER_INVULLEN.jpg" 
     },
     {
-        datum: "18 Februari 2026",
+        datum: "16 Februari 2026",
         tijd: "09:00",
         bericht: "Goedemorgen allemaal. Ik ben net aangekomen in het ziekenhuis. De verpleging is hier erg vriendelijk."
+        fotoUrl: "afbeeldingen/Intake.jpeg"
     },
     {
         datum: "17 Februari 2026",
@@ -91,3 +92,4 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
+
