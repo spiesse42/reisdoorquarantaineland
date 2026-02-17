@@ -2,29 +2,26 @@
 
 // DEEL 1: Status
 const huidigeStatus = {
-    locatie: "AZ Ziekenhuis, Kamer 304",
-    stemming: "Hoopvol & beetje moe",
-    bezoek: "Even wachten tot na de operatie"
+    // Gebruik korte, duidelijke teksten hier
+    locatie: "AZ Kamer 304",
+    stemming: "Hoopvol & moe",
+    bezoek: "Na de operatie"
 };
 
 // DEEL 2: Updates met FOTO'S
-// Je kunt nu een regel 'fotoUrl' toevoegen.
-// Zorg dat je foto eerst geupload is naar je 'afbeeldingen' map op GitHub.
+// BELANGRIJK: Hoofdlettergevoelig! Check je map 'afbeeldingen' op GitHub.
 const updates = [
     {
         datum: "18 Februari 2026",
         tijd: "10:30",
-        bericht: "Ik ben geïnstalleerd op de kamer. Het uitzicht is gelukkig best oké! Nu wachten op de eerste onderzoeken.",
-        // VORBEELD VAN EEN FOTO TOEVOEGEN:
-        // Zorg dat de bestandsnaam exact klopt met wat je uploadt.
-        // Als je geen foto hebt, verwijder je deze regel 'fotoUrl' gewoon.
-        fotoUrl: "afbeeldingen/Intake.jpeg"
+        bericht: "Ik ben geïnstalleerd op de kamer. Het uitzicht is gelukkig best oké! Nu wachten op de eerste onderzoeken. De nieuwe website ziet er alvast een stuk vrolijker uit!",
+        // VUL HIERONDER DE EXACTE NAAM IN ZOALS HIJ OP GITHUB STAAT:
+        // fotoUrl: "afbeeldingen/JOUW_BESTANDSNAAM_HIER_INVULLEN.jpg" 
     },
     {
         datum: "18 Februari 2026",
         tijd: "09:00",
         bericht: "Goedemorgen allemaal. Ik ben net aangekomen in het ziekenhuis. De verpleging is hier erg vriendelijk."
-        // Deze update heeft geen 'fotoUrl' regel, dus toont hij alleen tekst.
     },
     {
         datum: "17 Februari 2026",
@@ -45,18 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function laadStatus() {
     const statusDiv = document.getElementById('status-display');
+    // Let op: de HTML structuur is hier iets aangepast voor de nieuwe ronde iconen
     const html = `
         <div class="status-item">
-            <span class="status-icon">📍</span> 
-            <strong>Locatie:</strong> &nbsp; ${huidigeStatus.locatie}
+            <div class="status-icon">📍</div> 
+            <div><strong>Locatie:</strong><br> ${huidigeStatus.locatie}</div>
         </div>
         <div class="status-item">
-            <span class="status-icon">😊</span>
-            <strong>Gevoel:</strong> &nbsp; ${huidigeStatus.stemming}
+            <div class="status-icon">🤞</div>
+            <div><strong>Gevoel:</strong><br> ${huidigeStatus.stemming}</div>
         </div>
         <div class="status-item">
-            <span class="status-icon">👥</span>
-            <strong>Bezoek:</strong> &nbsp; ${huidigeStatus.bezoek}
+            <div class="status-icon">👥</div>
+            <div><strong>Bezoek:</strong><br> ${huidigeStatus.bezoek}</div>
         </div>
     `;
     statusDiv.innerHTML = html;
@@ -67,12 +65,12 @@ function laadUpdates() {
     let html = '';
 
     updates.forEach(update => {
-        // We kijken of er een fotoUrl is ingevuld voor deze update
         let imageHtml = '';
         if (update.fotoUrl) {
+            // 'onerror' zorgt dat er geen kapot icoon staat als de foto nog niet geupload is
             imageHtml = `
                 <div class="update-image-container">
-                    <img src="${update.fotoUrl}" alt="Foto bij update" class="update-image">
+                    <img src="${update.fotoUrl}" alt="Foto bij update" class="update-image" onerror="this.style.display='none'">
                 </div>
             `;
         }
@@ -93,7 +91,3 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
-
-
-
-
