@@ -13,19 +13,19 @@ const huidigeStatus = {
 const updates = [
     {
         datum: "18 Februari 2026",
-        tijd: "10:30",
+        tijd: "10:30u",
         bericht: "Ik ben geïnstalleerd op de kamer. Het uitzicht is gelukkig best oké! Nu wachten op de eerste onderzoeken. De nieuwe website ziet er alvast een stuk vrolijker uit!",
         // VUL HIERONDER DE EXACTE NAAM IN ZOALS HIJ OP GITHUB STAAT:
+            },
+    {
+        datum: "18 Februari 2026",
+        tijd: "08:45u",
+        bericht: "Goedemorgen allemaal. Zoals afgesproken met één de verpleegsters me van dichtbij volgen zijn we mooi op om me aan te melden op de afdeling. Omdat de ziekenhuiskoffie net iets minder lekker is beslissen we om onze neus te volgen en samen nog een lekker bakkie koffie te nuttigen in de cafetaria."
         fotoUrl: "afbeeldingen/Intake.jpeg" 
     },
     {
-        datum: "18 Februari 2026",
-        tijd: "09:00",
-        bericht: "Goedemorgen allemaal. Ik ben net aangekomen in het ziekenhuis. De verpleging is hier erg vriendelijk."
-    },
-    {
         datum: "17 Februari 2026",
-        tijd: "20:00",
+        tijd: "20:00u",
         bericht: "De koffer is gepakt! Morgen is de grote dag. Ik ben best zenuwachtig."
     }
 ];
@@ -91,3 +91,4 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
+
