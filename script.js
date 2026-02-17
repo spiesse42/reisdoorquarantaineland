@@ -18,7 +18,7 @@ const updates = [
         // VORBEELD VAN EEN FOTO TOEVOEGEN:
         // Zorg dat de bestandsnaam exact klopt met wat je uploadt.
         // Als je geen foto hebt, verwijder je deze regel 'fotoUrl' gewoon.
-        fotoUrl: "afbeeldingen/kamer-uitzicht.jpg" 
+        fotoUrl: "https://github.com/spiesse42/reisdoorquarantaineland/blob/main/afbeeldingen/Intake.jpeg" 
     },
     {
         datum: "18 Februari 2026",
@@ -93,3 +93,4 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
+
