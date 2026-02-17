@@ -90,14 +90,41 @@ function laadUpdates() {
     updates.forEach(update => {
         let imageHtml = '';
         if (update.fotoUrl) {
-            // We voegen een 'onerror' toe: als de foto niet gevonden wordt (foute naam),
-            // verbergt hij het plaatje in plaats van een lelijk icoon te tonen.
             imageHtml = `
                 <div class="update-image-container">
                     <img src="${update.fotoUrl}" alt="Foto bij update" class="update-image" onerror="this.style.display='none'">
                 </div>
             `;
         }
+
+        // SLIMME TEKST LOGICA:
+        let opgemaaktBericht = "";
+        if (update.bericht) {
+            // Stap 1: We kijken eerst of je ergens DUBBELE enters hebt gebruikt (een witregel).
+            // Die vervangen we door <br><br> zodat je daar écht een nieuwe alinea krijgt.
+            let metAlineas = update.bericht.replace(/\n\s*\n/g, '<br><br>');
+            
+            // Stap 2: Alle overgebleven ENKELE enters (die je puur voor de leesbaarheid in de code deed),
+            // vervangen we door een spatie. Zo loopt je zin mooi door.
+            opgemaaktBericht = metAlineas.replace(/\n/g, ' ');
+        }
+
+        html += `
+            <div class="update-card">
+                <div class="update-header">
+                    <span class="update-date">${update.datum}</span>
+                    <span class="update-time">${update.tijd}</span>
+                </div>
+                <div class="update-text">
+                    ${opgemaaktBericht}
+                </div>
+                ${imageHtml}
+            </div>
+        `;
+    });
+
+    timelineDiv.innerHTML = html;
+}
 
         // BEVEILIGING: Als bericht leeg is of niet bestaat, crasht de site niet meer.
         let opgemaaktBericht = "";
@@ -121,6 +148,7 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
+
 
 
 
