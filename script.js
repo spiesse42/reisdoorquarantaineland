@@ -2,32 +2,13 @@
 
 // DEEL 1: Status
 const huidigeStatus = {
-    locatie: "AZ Delta - kamer 510 (denk ik)",
-    stemming: "Strijdvaardig, ready for it",
-    bezoek: "Tussen 14u en 20u. Max 2 personen per bezoek."
+    locatie: "AZ Kamer 304",
+    stemming: "Hoopvol & moe",
+    bezoek: "Na de operatie"
 };
 
 // DEEL 2: Updates
-// BELANGRIJK:
-// 1. Tussen elk blokje { ... } moet een KOMMA staan!
-// 2. Gebruik de ` (backtick) voor tekst.
-// 3. Foto namen moeten EXACT kloppen (hoofdlettergevoelig).
-
 const updates = [
-    {
-        datum: "18 Februari 2026",
-        tijd: "10:30",
-        bericht: `
-Ik ben geïnstalleerd op de kamer. Het uitzicht is gelukkig best oké! 
-
-Nu is het wachten op de eerste onderzoeken. De verpleging komt zo langs voor de bloeddruk.
-
-De nieuwe website ziet er alvast een stuk vrolijker uit!
-        `,
-        // Zorg dat je map op GitHub 'afbeeldingen' heet (kleine letters)
-        // En dat je foto exact zo heet (bv. .jpg of .JPG of .jpeg)
-        
-    }, // <--- VERGEET DEZE KOMMA NIET als er nog een update volgt!
     {
         datum: "16 Februari 2026",
         tijd: "08:45u",
@@ -40,19 +21,22 @@ Gepakt & gezakt gelijk 2 muilezels konden we dan vertrekken richting verdieping 
 mijn buitenverblijf te begeleiden. Zon, zee en strand wordt het niet helaas. 24 graden en droog, dat wel voor de komende weken.
 
 Op naar de installatie van de kamer en hetgeen daarop volgt.
-       `,
-fotoUrl: "afbeeldingen/Intake.jpeg"
-        // Geen foto hier, dat mag.
-    }, // <--- VERGEET DEZE KOMMA NIET
+        `,
+        fotoUrl: "afbeeldingen/Intake.jpeg"
+    },
+    // HIERONDER KAN JE EEN NIEUWE UPDATE TOEVOEGEN:
+    /*
     {
-        datum: "17 Februari 2026",
-        tijd: "20:00",
-        bericht: "De koffer is gepakt! Morgen is de grote dag. Ik ben best zenuwachtig."
-    }
+        datum: "...",
+        tijd: "...",
+        bericht: `...`,
+    } 
+    */
 ];
 
 /* ----------------------------------------------------------
-   TECHNISCHE LOGICA (MET EXTRA BEVEILIGING)
+   TECHNISCHE LOGICA 
+   (Hier zit de 'slimme motor' die je tekst mooi maakt)
    ----------------------------------------------------------
 */
 
@@ -82,8 +66,6 @@ function laadStatus() {
 
 function laadUpdates() {
     const timelineDiv = document.getElementById('timeline');
-    
-    // Check of timelineDiv wel bestaat (veiligheid)
     if (!timelineDiv) return;
 
     let html = '';
@@ -98,17 +80,16 @@ function laadUpdates() {
             `;
         }
 
-        // SLIMME TEKST LOGICA:
+        // --- HIER ZIT DE OPLOSSING ---
         let opgemaaktBericht = "";
         if (update.bericht) {
-            // Stap 1: We kijken eerst of je ergens DUBBELE enters hebt gebruikt (een witregel).
-            // Die vervangen we door <br><br> zodat je daar écht een nieuwe alinea krijgt.
+            // Stap 1: Dubbele enters (witregels) worden échte alinea's (<br><br>)
             let metAlineas = update.bericht.replace(/\n\s*\n/g, '<br><br>');
             
-            // Stap 2: Alle overgebleven ENKELE enters (die je puur voor de leesbaarheid in de code deed),
-            // vervangen we door een spatie. Zo loopt je zin mooi door.
+            // Stap 2: Enkele enters (die jij gebruikt voor leesbaarheid) worden spaties
             opgemaaktBericht = metAlineas.replace(/\n/g, ' ');
         }
+        // -----------------------------
 
         html += `
             <div class="update-card">
@@ -126,34 +107,3 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
-
-        // BEVEILIGING: Als bericht leeg is of niet bestaat, crasht de site niet meer.
-        let opgemaaktBericht = "";
-        if (update.bericht) {
-             opgemaaktBericht = update.bericht.replace(/\n/g, '<br>');
-        }
-
-        html += `
-            <div class="update-card">
-                <div class="update-header">
-                    <span class="update-date">${update.datum}</span>
-                    <span class="update-time">${update.tijd}</span>
-                </div>
-                <div class="update-text">
-                    ${opgemaaktBericht}
-                </div>
-                ${imageHtml}
-            </div>
-        `;
-    });
-
-    timelineDiv.innerHTML = html;
-}
-
-
-
-
-
-
-
-
