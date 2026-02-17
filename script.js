@@ -33,7 +33,7 @@ De nieuwe website ziet er alvast een stuk vrolijker uit!
         tijd: "08:45u",
         bericht: `
 Goedemorgen allemaal. 
-Ik ben net aangekomen in het ziekenhuis, mooi op tijd om me tegen 9u aan te melden op de afdeling Hematologie. Omdat we alletwee weten dat de ziekenhuiskoffie net
+Ik ben net aangekomen in het ziekenhuis, mooi op tijd om me tegen 9u aan te melden op de afdeling Hematologie. Omdat we alletwee weten dat de ziekenhuiskoffie net 
 iets minder lekker is dan deze thuis beslissen we om onze neus te volgen en nog rap een koffieke te gaan drinken in de cafetaria. Slurp slurp en hop naar verdieping 2. 
 De verpleegster stond ons al op te wachten aan de schuifdeur, klaar om ons naar mijn buitenverblijf te begeleiden.
 
@@ -120,6 +120,7 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
+
 
 
 
