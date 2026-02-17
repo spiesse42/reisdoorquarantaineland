@@ -2,9 +2,9 @@
 
 // DEEL 1: Status
 const huidigeStatus = {
-    locatie: "AZ Kamer 304",
-    stemming: "Hoopvol & moe",
-    bezoek: "Na de operatie"
+    locatie: "AZ Delta - kamer 510 (denk ik)",
+    stemming: "Strijdvaardig, ready for it",
+    bezoek: "Tussen 14u en 20u. Max 2 personen per bezoek."
 };
 
 // DEEL 2: Updates
@@ -26,14 +26,19 @@ De nieuwe website ziet er alvast een stuk vrolijker uit!
         `,
         // Zorg dat je map op GitHub 'afbeeldingen' heet (kleine letters)
         // En dat je foto exact zo heet (bv. .jpg of .JPG of .jpeg)
-        fotoUrl: "afbeeldingen/kamer.jpg" 
+        
     }, // <--- VERGEET DEZE KOMMA NIET als er nog een update volgt!
     {
-        datum: "18 Februari 2026",
-        tijd: "09:00",
+        datum: "16 Februari 2026",
+        tijd: "08:45u",
         bericht: `
 Goedemorgen allemaal. 
-Ik ben net aangekomen in het ziekenhuis. De verpleging is hier erg vriendelijk.
+Ik ben net aangekomen in het ziekenhuis, mooi op tijd om me tegen 9u aan te melden op de afdeling Hematologie. Omdat we alletwee weten dat de ziekenhuiskoffie net
+iets minder lekker is dan deze thuis beslissen we om onze neus te volgen en nog rap een koffieke te gaan drinken in de cafetaria. Slurp slurp en hop naar verdieping 2. 
+De verpleegster stond ons al op te wachten aan de schuifdeur, klaar om ons naar mijn buitenverblijf te begeleiden.
+
+Zon, zee en strand wordt het niet helaas. 24 graden en droog, dat wel voor de komende weken.
+        fotoUrl: "afbeeldingen/Intake.jpeg" 
         `
         // Geen foto hier, dat mag.
     }, // <--- VERGEET DEZE KOMMA NIET
@@ -115,3 +120,4 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
+
