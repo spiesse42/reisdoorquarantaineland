@@ -14,6 +14,11 @@
 }
 
 /* --- ALGEMENE BASIS --- */
+/* BELANGRIJK: Dit zorgt dat witruimtes en breedtes altijd kloppen */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: var(--font-body);
     background-color: var(--bg-light);
@@ -23,7 +28,7 @@ body {
 }
 
 .container {
-    max-width: 1000px; /* Iets breder voor een modernere look */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -38,28 +43,27 @@ h1, h2, h3 {
     margin-bottom: 30px;
     position: relative;
     display: inline-block;
+    /* Terug links uitgelijnd */
+    text-align: left;
 }
 
 /* Het kleine oranje streepje onder titels */
 .section-title::after {
     content: '';
     display: block;
-    width: 60%;
+    width: 60px; /* Vaste breedte voor een strakker effect links */
     height: 4px;
     background-color: var(--accent-warm);
     border-radius: 2px;
     margin-top: 5px;
-    /* Zorgt dat het streepje ook mee centreert als de titel gecentreerd wordt */
-    margin-left: auto;
-    margin-right: auto;
 }
 
-/* --- DE NIEUWE GOLVENDE HEADER --- */
+/* --- DE GOLVENDE HEADER --- */
 .wave-header {
     position: relative;
     background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-dark) 100%);
     color: white;
-    padding: 80px 0 150px 0; /* Extra ruimte onderaan voor de golf en de zwevende kaart */
+    padding: 80px 0 150px 0;
     text-align: center;
     overflow: hidden;
 }
@@ -97,13 +101,12 @@ h1, h2, h3 {
 }
 
 .custom-shape-divider-bottom-1678886400 .shape-fill {
-    fill: var(--bg-light); /* De kleur van de pagina achtergrond */
+    fill: var(--bg-light);
 }
 
 
 /* --- LAY-OUT EN ZWEVENDE KAARTEN --- */
 
-/* Zorgt dat de inhoud over de header heen komt */
 .main-container-offset {
     position: relative;
     margin-top: -100px; 
@@ -142,7 +145,7 @@ section, .update-card {
 .status-icon {
     font-size: 2em;
     margin-bottom: 10px;
-    background: #e6fffa; /* Heel licht teal */
+    background: #e6fffa;
     width: 60px;
     height: 60px;
     line-height: 60px;
@@ -150,28 +153,27 @@ section, .update-card {
     color: var(--primary-teal);
 }
 
-/* --- HOOFD LAYOUT (Tijdlijn links, zijbalk rechts) --- */
+/* --- HOOFD LAYOUT --- */
 .content-layout {
     display: flex;
     gap: 40px;
 }
 
 .timeline-column {
-    flex: 2; /* Tijdlijn krijgt 2/3 van de ruimte */
+    flex: 2;
 }
 
 .sidebar-column {
-    flex: 1; /* Zijbalk krijgt 1/3 van de ruimte */
+    flex: 1;
 }
 
 
-/* --- DE VERNIEUWDE TIJDLIJN --- */
+/* --- DE TIJDLIJN --- */
 .timeline-wrapper {
     position: relative;
-    padding-left: 40px; /* Ruimte voor de lijn links */
+    padding-left: 40px;
 }
 
-/* De verticale lijn */
 .timeline-wrapper::before {
     content: '';
     position: absolute;
@@ -186,26 +188,25 @@ section, .update-card {
 .update-card {
     position: relative;
     margin-bottom: 40px;
-    border: none; /* Geen randen meer */
+    border: none;
     transition: transform 0.3s ease;
 }
 
 .update-card:hover {
-    transform: translateY(-5px); /* Zweef effectje */
+    transform: translateY(-5px);
 }
 
-/* Het bolletje op de tijdlijn */
 .update-card::before {
     content: '';
     position: absolute;
-    left: -38px; /* Positionering ten opzichte van de padding-left van de wrapper */
+    left: -38px;
     top: 25px;
     width: 20px;
     height: 20px;
     background: var(--primary-teal);
     border: 4px solid white;
     border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(56, 178, 172, 0.2); /* Zachte gloed om het bolletje */
+    box-shadow: 0 0 0 3px rgba(56, 178, 172, 0.2);
     z-index: 2;
 }
 
@@ -236,7 +237,6 @@ section, .update-card {
     font-size: 1.1em;
 }
 
-/* Foto's in updates */
 .update-image-container {
     margin-top: 25px;
 }
@@ -248,15 +248,14 @@ section, .update-card {
 }
 
 
-/* --- HET MODERNE FORMULIER --- */
+/* --- HET FORMULIER (Aangepast) --- */
 .sticky-sidebar {
     position: sticky;
-    top: 40px; /* Zorgt dat het formulier blijft plakken als je scrollt (op desktop) */
+    top: 40px;
 }
 
-/* AANGEPAST VOOR SPIESSE: Centrerende layout voor het formulier */
 .message-section {
-    text-align: center; /* Dit centreert de titel en de subtitel */
+    text-align: left; /* Terug links uitgelijnd */
 }
 
 .small-text {
@@ -265,11 +264,9 @@ section, .update-card {
     margin-bottom: 25px;
 }
 
-/* Moderne input velden met zwevende labels */
 .input-group {
     position: relative;
     margin-bottom: 25px;
-    text-align: left; /* BELANGRIJK: Zorgt dat typen en labels netjes links blijven */
 }
 
 .input-group input, 
@@ -283,7 +280,7 @@ section, .update-card {
     font-size: 1em;
     outline: none;
     transition: all 0.3s;
-    resize: vertical; /* Alleen verticaal vergroten textarea */
+    resize: vertical;
 }
 
 .input-group label {
@@ -297,7 +294,7 @@ section, .update-card {
     background: transparent;
 }
 
-/* Het effect wanneer je in een veld klikt */
+/* Interactie effecten */
 .input-group input:focus,
 .input-group textarea:focus,
 .input-group input:valid,
@@ -316,7 +313,6 @@ section, .update-card {
     background: white;
 }
 
-/* De verzendknop */
 .btn-grad {
     background: linear-gradient(to right, var(--primary-teal) 0%, var(--primary-dark)  100%);
     margin: 10px 0;
@@ -337,7 +333,7 @@ section, .update-card {
 }
 
 .btn-grad:hover {
-    background-position: right center; /* Kleurverandering effect */
+    background-position: right center;
     color: #fff;
     text-decoration: none;
     transform: translateY(-3px);
@@ -352,19 +348,13 @@ footer {
     font-size: 0.9em;
 }
 
-/* Aanpassingen voor telefoon en tablet */
 @media (max-width: 768px) {
     .header-content h1 { font-size: 2.5em; }
     .wave-header { padding-bottom: 100px; }
-    
-    /* Op mobiel zetten we de kolommen onder elkaar */
     .content-layout { flex-direction: column; }
-    .sidebar-column { order: -1; /* Formulier eerst op mobiel? Of laat order weg voor formulier onderaan */ }
-    
+    .sidebar-column { order: -1; }
     .status-item { flex-direction: row; margin-bottom: 20px; }
     .status-icon { margin-right: 20px; margin-bottom: 0; width: 50px; height: 50px; line-height: 50px; font-size: 1.5em;}
-    
-    /* Tijdlijn iets compacter op mobiel */
     .timeline-wrapper { padding-left: 30px; }
     .update-card::before { left: -36px; width: 16px; height: 16px; top: 28px;}
 }
