@@ -8,14 +8,15 @@ const huidigeStatus = {
 };
 
 // DEEL 2: Updates
-// BELANGRIJK: Gebruik nu de ` (backtick) in plaats van " (aanhalingsteken) bij het bericht.
-// Hierdoor kan je in de code gewoon op Enter drukken voor een nieuwe regel.
+// BELANGRIJK:
+// 1. Tussen elk blokje { ... } moet een KOMMA staan!
+// 2. Gebruik de ` (backtick) voor tekst.
+// 3. Foto namen moeten EXACT kloppen (hoofdlettergevoelig).
 
 const updates = [
     {
         datum: "18 Februari 2026",
         tijd: "10:30",
-        // HIERONDER ZIE JE HET VOORBEELD MET DE BACKTICKS (`):
         bericht: `
 Ik ben geïnstalleerd op de kamer. Het uitzicht is gelukkig best oké! 
 
@@ -23,8 +24,10 @@ Nu is het wachten op de eerste onderzoeken. De verpleging komt zo langs voor de 
 
 De nieuwe website ziet er alvast een stuk vrolijker uit!
         `,
-        // fotoUrl: "afbeeldingen/jouw-foto.jpg" 
-    },
+        // Zorg dat je map op GitHub 'afbeeldingen' heet (kleine letters)
+        // En dat je foto exact zo heet (bv. .jpg of .JPG of .jpeg)
+        fotoUrl: "afbeeldingen/kamer.jpg" 
+    }, // <--- VERGEET DEZE KOMMA NIET als er nog een update volgt!
     {
         datum: "18 Februari 2026",
         tijd: "09:00",
@@ -32,7 +35,8 @@ De nieuwe website ziet er alvast een stuk vrolijker uit!
 Goedemorgen allemaal. 
 Ik ben net aangekomen in het ziekenhuis. De verpleging is hier erg vriendelijk.
         `
-    },
+        // Geen foto hier, dat mag.
+    }, // <--- VERGEET DEZE KOMMA NIET
     {
         datum: "17 Februari 2026",
         tijd: "20:00",
@@ -41,7 +45,7 @@ Ik ben net aangekomen in het ziekenhuis. De verpleging is hier erg vriendelijk.
 ];
 
 /* ----------------------------------------------------------
-   TECHNISCHE LOGICA (AANGEPAST VOOR WITREGELS)
+   TECHNISCHE LOGICA (MET EXTRA BEVEILIGING)
    ----------------------------------------------------------
 */
 
@@ -71,11 +75,17 @@ function laadStatus() {
 
 function laadUpdates() {
     const timelineDiv = document.getElementById('timeline');
+    
+    // Check of timelineDiv wel bestaat (veiligheid)
+    if (!timelineDiv) return;
+
     let html = '';
 
     updates.forEach(update => {
         let imageHtml = '';
         if (update.fotoUrl) {
+            // We voegen een 'onerror' toe: als de foto niet gevonden wordt (foute naam),
+            // verbergt hij het plaatje in plaats van een lelijk icoon te tonen.
             imageHtml = `
                 <div class="update-image-container">
                     <img src="${update.fotoUrl}" alt="Foto bij update" class="update-image" onerror="this.style.display='none'">
@@ -83,9 +93,11 @@ function laadUpdates() {
             `;
         }
 
-        // NIEUW: We vervangen de 'Enters' in jouw tekst door HTML <br> tags
-        // Zo verschijnen de alinea's ook echt op de website.
-        let opgemaaktBericht = update.bericht.replace(/\n/g, '<br>');
+        // BEVEILIGING: Als bericht leeg is of niet bestaat, crasht de site niet meer.
+        let opgemaaktBericht = "";
+        if (update.bericht) {
+             opgemaaktBericht = update.bericht.replace(/\n/g, '<br>');
+        }
 
         html += `
             <div class="update-card">
