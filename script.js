@@ -27,10 +27,24 @@ Op naar de installatie van de kamer en hetgeen daarop volgt.
     // HIERONDER KAN JE EEN NIEUWE UPDATE TOEVOEGEN:
     /*
     {
-        datum: "...",
-        tijd: "...",
-        bericht: `...`,
-    } 
+        datum: "16 Februari 2026",
+        tijd: "10:45u",
+        bericht: `
+De eerste acties van de dag zijn ook al achter de rug.
+
+5 minuten nadat we begonnen waren om al mijn gerief uit te stallen (jaja, kaders van vrouw en kids en een heuse "Quarantaine Reismap"
+vol dagelijkse opdrachten om de verveling tegen te gaan. Echt een héél mooi cadeau van Zoë, Lander en Petra!) mocht ik al plaatsnemen in mijn bed.
+Verpleegster 1 trok bloed terwijl verpleegster 2 de parameters nam.
+
+Na een klein half uur mocht ik dan naar 'beneden', naar het operatiekwartier. Daar werd de centrale catheter gestoken net onder mijn sleutelbeen
+om daar dan de chemo op aan te sluiten morgen & de stamcellen ook via deze weg ook terug te kunnen geven.
+
+Zo ben je vlug patiënt, nou nou. Deze namiddg nog een zenuw- en spieronderzoek om al dan niet zenuwschade door behandeling te laten vaststellen.
+
+Op naar het volgende zou ik zeggen...
+        `,
+        fotoUrl: "afbeeldingen/Intake.jpeg"
+    },
     */
 ];
 
@@ -107,3 +121,4 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
+
