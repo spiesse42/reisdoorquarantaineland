@@ -49,6 +49,9 @@ h1, h2, h3 {
     background-color: var(--accent-warm);
     border-radius: 2px;
     margin-top: 5px;
+    /* Zorgt dat het streepje ook mee centreert als de titel gecentreerd wordt */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* --- DE NIEUWE GOLVENDE HEADER --- */
@@ -251,16 +254,22 @@ section, .update-card {
     top: 40px; /* Zorgt dat het formulier blijft plakken als je scrollt (op desktop) */
 }
 
+/* AANGEPAST VOOR SPIESSE: Centrerende layout voor het formulier */
+.message-section {
+    text-align: center; /* Dit centreert de titel en de subtitel */
+}
+
 .small-text {
     color: var(--text-muted);
     font-size: 0.9em;
     margin-bottom: 25px;
 }
 
-/* Moderne input velden met zwevende labels (stijlvol effect) */
+/* Moderne input velden met zwevende labels */
 .input-group {
     position: relative;
     margin-bottom: 25px;
+    text-align: left; /* BELANGRIJK: Zorgt dat typen en labels netjes links blijven */
 }
 
 .input-group input, 
