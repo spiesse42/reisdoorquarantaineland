@@ -26,7 +26,7 @@ Zo ben je vlug patiënt, nou nou. Deze namiddg nog een zenuw- en spieronderzoek 
 
 Op naar het volgende zou ik zeggen...
         `,
-        fotoUrl: "afbeeldingen/Intake.jpeg"
+        fotoUrl: "afbeeldingen/centrale catheter.JPG"
     }, {
         datum: "16 Februari 2026",
         tijd: "08:45u",
@@ -121,5 +121,6 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
+
 
 
