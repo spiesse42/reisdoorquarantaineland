@@ -1,203 +1,361 @@
-/* Algemene instellingen */
+/* --- KLEURENPALET & INSTELLINGEN --- */
+:root {
+    --primary-teal: #38b2ac;     /* Fris mint/teal */
+    --primary-dark: #2c7a7b;     /* Donkerder teal voor contrast */
+    --accent-warm: #f6ad55;      /* Warm oranje/geel voor accenten */
+    --bg-light: #f8fafc;         /* Zeer lichte achtergrondkleur */
+    --text-dark: #2d3748;        /* Donkergrijs voor tekst (leest fijner dan zwart) */
+    --text-muted: #718096;       /* Iets lichter grijs voor datums etc. */
+    
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Montserrat', sans-serif;
+
+    --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1); /* Zachte schaduw */
+}
+
+/* --- ALGEMENE BASIS --- */
 body {
-    font-family: 'Poppins', sans-serif; /* Moderner lettertype */
+    font-family: var(--font-body);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
     margin: 0;
-    padding: 0;
-    background-color: #f0f2f5; /* Iets grijzere achtergrond voor contrast */
-    color: #333;
     line-height: 1.7;
 }
 
 .container {
-    max-width: 850px; /* Iets breder */
+    max-width: 1000px; /* Iets breder voor een modernere look */
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* NIEUW: Hero Header met achtergrondfoto */
-header.hero-header {
-    /* TIP VOOR SPIESSE: Vervang de link hieronder door je eigen foto als je wilt */
-    background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1400&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--text-dark);
+}
+
+.section-title {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Het kleine oranje streepje onder titels */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 4px;
+    background-color: var(--accent-warm);
+    border-radius: 2px;
+    margin-top: 5px;
+}
+
+/* --- DE NIEUWE GOLVENDE HEADER --- */
+.wave-header {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-dark) 100%);
     color: white;
+    padding: 80px 0 150px 0; /* Extra ruimte onderaan voor de golf en de zwevende kaart */
     text-align: center;
-    position: relative;
+    overflow: hidden;
 }
 
-.hero-overlay {
-    background: rgba(0, 64, 128, 0.6); /* Blauwe doorzichtige laag over de foto */
-    padding: 80px 0; /* Meer hoogte */
-}
-
-header h1 {
-    font-family: 'Roboto Slab', serif;
+.header-content h1 {
+    color: white;
+    font-size: 3.5em;
     margin: 0;
-    font-size: 3em;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
-header .subtitle {
-    margin-top: 15px;
+.header-content .subtitle {
     font-size: 1.3em;
-    opacity: 0.95;
-    font-weight: 300;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-top: 10px;
 }
 
-.main-content {
-    margin-top: -40px; /* Zorgt dat de kaarten iets over de header vallen */
+/* De SVG golf vorm */
+.custom-shape-divider-bottom-1678886400 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1678886400 svg {
     position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 120px;
+}
+
+.custom-shape-divider-bottom-1678886400 .shape-fill {
+    fill: var(--bg-light); /* De kleur van de pagina achtergrond */
+}
+
+
+/* --- LAY-OUT EN ZWEVENDE KAARTEN --- */
+
+/* Zorgt dat de inhoud over de header heen komt */
+.main-container-offset {
+    position: relative;
+    margin-top: -100px; 
     z-index: 10;
 }
 
-/* Secties als 'kaarten' */
-section {
+/* De algemene stijl voor witte kaarten */
+section, .update-card {
     background: white;
-    border-radius: 16px; /* Rondere hoeken */
+    border-radius: 20px;
     padding: 30px;
-    margin-bottom: 35px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05); /*Zachtere, diepere schaduw */
+    box-shadow: var(--card-shadow);
 }
 
-h2 {
-    color: #1a2a3a;
-    font-weight: 700;
-    border-bottom: none;
-    padding-bottom: 15px;
-    margin-top: 0;
-    position: relative;
+/* Specifieke stijl voor de statuskaart bovenaan */
+.floating-card {
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: 4px solid var(--accent-warm);
 }
 
-/* Klein blauw streepje onder titels */
-h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 4px;
-    background: #4facfe;
-    margin-top: 8px;
-    border-radius: 2px;
-}
-
-/* Status Kaart */
-.status-card {
-    background: #fff;
-    border-top: 6px solid #4facfe;
+.status-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .status-item {
-    margin-bottom: 15px;
-    font-size: 1.15em;
+    font-size: 1.1em;
+    margin: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 .status-icon {
-    font-size: 1.5em;
-    margin-right: 15px;
+    font-size: 2em;
+    margin-bottom: 10px;
+    background: #e6fffa; /* Heel licht teal */
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    color: var(--primary-teal);
 }
 
-/* Tijdlijn en Foto's */
+/* --- HOOFD LAYOUT (Tijdlijn links, zijbalk rechts) --- */
+.content-layout {
+    display: flex;
+    gap: 40px;
+}
+
+.timeline-column {
+    flex: 2; /* Tijdlijn krijgt 2/3 van de ruimte */
+}
+
+.sidebar-column {
+    flex: 1; /* Zijbalk krijgt 1/3 van de ruimte */
+}
+
+
+/* --- DE VERNIEUWDE TIJDLIJN --- */
+.timeline-wrapper {
+    position: relative;
+    padding-left: 40px; /* Ruimte voor de lijn links */
+}
+
+/* De verticale lijn */
+.timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    bottom: 50px;
+    width: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+}
+
 .update-card {
-    background: #f9fbfd;
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-left: 4px solid #ddd;
-    transition: transform 0.2s;
+    position: relative;
+    margin-bottom: 40px;
+    border: none; /* Geen randen meer */
+    transition: transform 0.3s ease;
 }
 
-/* Een klein effect als je met je muis over een update gaat */
 .update-card:hover {
-    transform: translateY(-3px);
-    border-left-color: #4facfe;
+    transform: translateY(-5px); /* Zweef effectje */
+}
+
+/* Het bolletje op de tijdlijn */
+.update-card::before {
+    content: '';
+    position: absolute;
+    left: -38px; /* Positionering ten opzichte van de padding-left van de wrapper */
+    top: 25px;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-teal);
+    border: 4px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(56, 178, 172, 0.2); /* Zachte gloed om het bolletje */
+    z-index: 2;
 }
 
 .update-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .update-date {
-    font-weight: 700;
-    color: #4facfe;
-    font-size: 1.1em;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    color: var(--primary-dark);
+    font-size: 1.2em;
 }
 
 .update-time {
     font-size: 0.9em;
-    color: #999;
+    color: var(--text-muted);
+    font-weight: 500;
+    background: #edf2f7;
+    padding: 4px 12px;
+    border-radius: 20px;
 }
 
 .update-text {
-    font-size: 1.05em;
+    font-size: 1.1em;
 }
 
-/* NIEUW: Stijl voor de foto's in updates */
+/* Foto's in updates */
 .update-image-container {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .update-image {
     width: 100%;
-    max-height: 500px;
-    object-fit: cover; /* Zorgt dat de foto netjes de ruimte vult zonder uitrekken */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-/* Formulier */
-.message-section input, 
-.message-section textarea {
+
+/* --- HET MODERNE FORMULIER --- */
+.sticky-sidebar {
+    position: sticky;
+    top: 40px; /* Zorgt dat het formulier blijft plakken als je scrollt (op desktop) */
+}
+
+.small-text {
+    color: var(--text-muted);
+    font-size: 0.9em;
+    margin-bottom: 25px;
+}
+
+/* Moderne input velden met zwevende labels (stijlvol effect) */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input, 
+.input-group textarea {
     width: 100%;
     padding: 15px;
-    margin-bottom: 15px;
-    border: 2px solid #eee;
-    border-radius: 8px;
-    box-sizing: border-box;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
     font-family: inherit;
     font-size: 1em;
-    transition: border-color 0.3s;
-}
-
-.message-section input:focus, 
-.message-section textarea:focus {
-    border-color: #4facfe;
     outline: none;
+    transition: all 0.3s;
+    resize: vertical; /* Alleen verticaal vergroten textarea */
 }
 
-.message-section button {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    color: white;
-    border: none;
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: all 0.3s;
+    padding: 0 5px;
+    background: transparent;
+}
+
+/* Het effect wanneer je in een veld klikt */
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group input:valid,
+.input-group textarea:valid {
+    border-color: var(--primary-teal);
+    background: white;
+}
+
+.input-group input:focus ~ label,
+.input-group textarea:focus ~ label,
+.input-group input:valid ~ label,
+.input-group textarea:valid ~ label {
+    top: -10px;
+    font-size: 0.85em;
+    color: var(--primary-teal);
+    background: white;
+}
+
+/* De verzendknop */
+.btn-grad {
+    background: linear-gradient(to right, var(--primary-teal) 0%, var(--primary-dark)  100%);
+    margin: 10px 0;
     padding: 15px 30px;
-    font-size: 1.1em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 5px 15px rgba(56, 178, 172, 0.3);
+    border-radius: 10px;
+    border: none;
     font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: opacity 0.3s;
+    font-family: var(--font-body);
+    letter-spacing: 1px;
     width: 100%;
+    cursor: pointer;
 }
 
-.message-section button:hover {
-    opacity: 0.9;
+.btn-grad:hover {
+    background-position: right center; /* Kleurverandering effect */
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-3px);
 }
 
-/* Footer */
+
+/* --- FOOTER & MOBIEL --- */
 footer {
     text-align: center;
-    padding: 40px 0;
-    color: #888;
+    padding: 60px 0;
+    color: var(--text-muted);
+    font-size: 0.9em;
 }
 
-/* Mobiele aanpassingen */
-@media (max-width: 600px) {
-    header h1 { font-size: 2em; }
-    .hero-overlay { padding: 60px 0; }
-    .main-content { margin-top: -20px; }
-    .status-item { flex-direction: column; align-items: flex-start; }
-    .status-icon { margin-bottom: 5px; }
+/* Aanpassingen voor telefoon en tablet */
+@media (max-width: 768px) {
+    .header-content h1 { font-size: 2.5em; }
+    .wave-header { padding-bottom: 100px; }
+    
+    /* Op mobiel zetten we de kolommen onder elkaar */
+    .content-layout { flex-direction: column; }
+    .sidebar-column { order: -1; /* Formulier eerst op mobiel? Of laat order weg voor formulier onderaan */ }
+    
+    .status-item { flex-direction: row; margin-bottom: 20px; }
+    .status-icon { margin-right: 20px; margin-bottom: 0; width: 50px; height: 50px; line-height: 50px; font-size: 1.5em;}
+    
+    /* Tijdlijn iets compacter op mobiel */
+    .timeline-wrapper { padding-left: 30px; }
+    .update-card::before { left: -36px; width: 16px; height: 16px; top: 28px;}
 }
