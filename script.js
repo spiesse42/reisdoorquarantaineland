@@ -2,36 +2,46 @@
 
 // DEEL 1: Status
 const huidigeStatus = {
-    // Gebruik korte, duidelijke teksten hier
     locatie: "AZ Kamer 304",
     stemming: "Hoopvol & moe",
     bezoek: "Na de operatie"
 };
 
-// DEEL 2: Updates met FOTO'S
-// BELANGRIJK: Hoofdlettergevoelig! Check je map 'afbeeldingen' op GitHub.
+// DEEL 2: Updates
+// BELANGRIJK: Gebruik nu de ` (backtick) in plaats van " (aanhalingsteken) bij het bericht.
+// Hierdoor kan je in de code gewoon op Enter drukken voor een nieuwe regel.
+
 const updates = [
     {
         datum: "18 Februari 2026",
-        tijd: "10:30u",
-        bericht: "Ik ben geïnstalleerd op de kamer. Het uitzicht is gelukkig best oké! Nu wachten op de eerste onderzoeken. De nieuwe website ziet er alvast een stuk vrolijker uit!",
-        // VUL HIERONDER DE EXACTE NAAM IN ZOALS HIJ OP GITHUB STAAT:
-            },
+        tijd: "10:30",
+        // HIERONDER ZIE JE HET VOORBEELD MET DE BACKTICKS (`):
+        bericht: `
+Ik ben geïnstalleerd op de kamer. Het uitzicht is gelukkig best oké! 
+
+Nu is het wachten op de eerste onderzoeken. De verpleging komt zo langs voor de bloeddruk.
+
+De nieuwe website ziet er alvast een stuk vrolijker uit!
+        `,
+        // fotoUrl: "afbeeldingen/jouw-foto.jpg" 
+    },
     {
         datum: "18 Februari 2026",
-        tijd: "08:45u",
-        bericht: "Goedemorgen allemaal. Zoals afgesproken met één de verpleegsters me van dichtbij volgen zijn we mooi op om me aan te melden op de afdeling. Omdat de ziekenhuiskoffie net iets minder lekker is beslissen we om onze neus te volgen en samen nog een lekker bakkie koffie te nuttigen in de cafetaria."
-        fotoUrl: "afbeeldingen/Intake.jpeg" 
+        tijd: "09:00",
+        bericht: `
+Goedemorgen allemaal. 
+Ik ben net aangekomen in het ziekenhuis. De verpleging is hier erg vriendelijk.
+        `
     },
     {
         datum: "17 Februari 2026",
-        tijd: "20:00u",
+        tijd: "20:00",
         bericht: "De koffer is gepakt! Morgen is de grote dag. Ik ben best zenuwachtig."
     }
 ];
 
 /* ----------------------------------------------------------
-   TECHNISCHE LOGICA (NIET AANPASSEN)
+   TECHNISCHE LOGICA (AANGEPAST VOOR WITREGELS)
    ----------------------------------------------------------
 */
 
@@ -42,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function laadStatus() {
     const statusDiv = document.getElementById('status-display');
-    // Let op: de HTML structuur is hier iets aangepast voor de nieuwe ronde iconen
     const html = `
         <div class="status-item">
             <div class="status-icon">📍</div> 
@@ -67,13 +76,16 @@ function laadUpdates() {
     updates.forEach(update => {
         let imageHtml = '';
         if (update.fotoUrl) {
-            // 'onerror' zorgt dat er geen kapot icoon staat als de foto nog niet geupload is
             imageHtml = `
                 <div class="update-image-container">
                     <img src="${update.fotoUrl}" alt="Foto bij update" class="update-image" onerror="this.style.display='none'">
                 </div>
             `;
         }
+
+        // NIEUW: We vervangen de 'Enters' in jouw tekst door HTML <br> tags
+        // Zo verschijnen de alinea's ook echt op de website.
+        let opgemaaktBericht = update.bericht.replace(/\n/g, '<br>');
 
         html += `
             <div class="update-card">
@@ -82,7 +94,7 @@ function laadUpdates() {
                     <span class="update-time">${update.tijd}</span>
                 </div>
                 <div class="update-text">
-                    ${update.bericht}
+                    ${opgemaaktBericht}
                 </div>
                 ${imageHtml}
             </div>
@@ -91,4 +103,3 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
-
