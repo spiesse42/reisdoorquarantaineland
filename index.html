@@ -3,58 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spiesse's reis door quarantaineland</title>
+    <title>Spiesse's Herstel Blog</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="hero-header">
-        <div class="hero-overlay">
-            <div class="container">
-                <h1>Spiesse's reis door quarantaineland</h1>
-                <p class="subtitle">Volg hier mijn verblijf en updates</p>
-            </div>
+    <header class="wave-header">
+        <div class="container header-content">
+            <h1>Spiesse's Herstel Blog</h1>
+            <p class="subtitle">Een update van mijn verblijf en herstel</p>
+        </div>
+        <div class="custom-shape-divider-bottom-1678886400">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
         </div>
     </header>
 
-    <main class="container main-content">
+    <main class="container main-container-offset">
         
-        <section class="status-card">
-            <h2>Huidige Status</h2>
+        <section class="status-card floating-card">
             <div id="status-display" class="status-content">
                 </div>
         </section>
 
-        <section class="timeline-section">
-            <h2>Laatste Updates</h2>
-            <div id="timeline" class="timeline">
-                </div>
-        </section>
+        <div class="content-layout">
+            <div class="timeline-column">
+                <h2 class="section-title">Tijdlijn van mijn herstel</h2>
+                <div id="timeline" class="timeline-wrapper">
+                   </div>
+            </div>
 
-        <section class="message-section">
-            <h2>Laat een berichtje achter</h2>
-            <p>Ik lees alles, maar kan misschien niet meteen antwoorden.</p>
-            
-            <form action="https://formsubmit.co/davidspiesschaert1@gmail.com" method="POST">
-                <input type="hidden" name="_next" value="https://jouwnaam.github.io/mijn-herstel-blog/">
-                <input type="hidden" name="_captcha" value="false">
-                
-                <input type="text" name="naam" placeholder="Jouw naam" required>
-                <input type="email" name="email" placeholder="Jouw e-mailadres (optioneel)" >
-                <textarea name="bericht" placeholder="Jouw boodschap voor Spiesse..." rows="4" required></textarea>
-                
-                <button type="submit">Verstuur bericht</button>
-            </form>
-        </section>
+            <div class="sidebar-column">
+                 <section class="message-section sticky-sidebar">
+                    <h2 class="section-title">Stuur een oppeppertje</h2>
+                    <p class="small-text">Ik lees alles graag, antwoorden volgt later!</p>
+                    
+                    <form action="https://formsubmit.co/davidspiesschaert1@gmail.com" method="POST">
+                        <input type="hidden" name="_next" value="https://jouwnaam.github.io/mijn-herstel-blog/">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <div class="input-group">
+                            <input type="text" name="naam" required>
+                            <label>Jouw naam</label>
+                        </div>
+                         <div class="input-group">
+                            <input type="email" name="email">
+                            <label>Jouw e-mail (optioneel)</label>
+                        </div>
+                        <div class="input-group">
+                            <textarea name="bericht" rows="3" required></textarea>
+                            <label>Jouw lieve boodschap...</label>
+                        </div>
+                        
+                        <button type="submit" class="btn-grad">Verstuur bericht 💌</button>
+                    </form>
+                </section>
+            </div>
+        </div>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 Spiesse - Bedankt voor de steun!</p>
+        <p>&copy; 2026 Spiesse - Samen sterk!</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
