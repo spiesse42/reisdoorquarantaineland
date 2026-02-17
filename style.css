@@ -1,100 +1,130 @@
 /* Algemene instellingen */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Moderner lettertype */
     margin: 0;
     padding: 0;
-    background-color: #f4f7f6;
+    background-color: #f0f2f5; /* Iets grijzere achtergrond voor contrast */
     color: #333;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 850px; /* Iets breder */
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Header */
-header {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+/* NIEUW: Hero Header met achtergrondfoto */
+header.hero-header {
+    /* TIP VOOR SPIESSE: Vervang de link hieronder door je eigen foto als je wilt */
+    background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1400&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
     color: white;
-    padding: 40px 0;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.hero-overlay {
+    background: rgba(0, 64, 128, 0.6); /* Blauwe doorzichtige laag over de foto */
+    padding: 80px 0; /* Meer hoogte */
 }
 
 header h1 {
     font-family: 'Roboto Slab', serif;
     margin: 0;
-    font-size: 2.5em;
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 header .subtitle {
-    margin-top: 10px;
-    font-size: 1.1em;
-    opacity: 0.9;
+    margin-top: 15px;
+    font-size: 1.3em;
+    opacity: 0.95;
+    font-weight: 300;
 }
 
-/* Secties */
+.main-content {
+    margin-top: -40px; /* Zorgt dat de kaarten iets over de header vallen */
+    position: relative;
+    z-index: 10;
+}
+
+/* Secties als 'kaarten' */
 section {
     background: white;
-    border-radius: 12px;
-    padding: 25px;
-    margin-top: 30px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    border-radius: 16px; /* Rondere hoeken */
+    padding: 30px;
+    margin-bottom: 35px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); /*Zachtere, diepere schaduw */
 }
 
 h2 {
-    color: #2c3e50;
-    border-bottom: 2px solid #eef2f3;
-    padding-bottom: 10px;
+    color: #1a2a3a;
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 15px;
     margin-top: 0;
+    position: relative;
+}
+
+/* Klein blauw streepje onder titels */
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: #4facfe;
+    margin-top: 8px;
+    border-radius: 2px;
 }
 
 /* Status Kaart */
 .status-card {
-    border-left: 5px solid #4facfe;
+    background: #fff;
+    border-top: 6px solid #4facfe;
 }
 
 .status-item {
-    margin-bottom: 10px;
-    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-size: 1.15em;
+    display: flex;
+    align-items: center;
 }
 
-.status-label {
-    font-weight: 600;
-    color: #555;
-    display: inline-block;
-    width: 120px;
+.status-icon {
+    font-size: 1.5em;
+    margin-right: 15px;
 }
 
-/* Tijdlijn (Updates) */
-.timeline {
-    position: relative;
-    padding: 20px 0;
-}
-
+/* Tijdlijn en Foto's */
 .update-card {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    background: #f9fbfd;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-left: 4px solid #ddd;
+    transition: transform 0.2s;
 }
 
-.update-card:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
+/* Een klein effect als je met je muis over een update gaat */
+.update-card:hover {
+    transform: translateY(-3px);
+    border-left-color: #4facfe;
 }
 
 .update-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
 }
 
 .update-date {
-    font-weight: 600;
+    font-weight: 700;
     color: #4facfe;
+    font-size: 1.1em;
 }
 
 .update-time {
@@ -106,31 +136,54 @@ h2 {
     font-size: 1.05em;
 }
 
+/* NIEUW: Stijl voor de foto's in updates */
+.update-image-container {
+    margin-top: 20px;
+}
+
+.update-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover; /* Zorgt dat de foto netjes de ruimte vult zonder uitrekken */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
 /* Formulier */
 .message-section input, 
 .message-section textarea {
     width: 100%;
-    padding: 12px;
+    padding: 15px;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-sizing: border-box; /* Zorgt dat padding binnen de breedte valt */
+    border: 2px solid #eee;
+    border-radius: 8px;
+    box-sizing: border-box;
     font-family: inherit;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.message-section input:focus, 
+.message-section textarea:focus {
+    border-color: #4facfe;
+    outline: none;
 }
 
 .message-section button {
-    background-color: #4facfe;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     color: white;
     border: none;
-    padding: 12px 25px;
-    font-size: 1em;
-    border-radius: 6px;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: opacity 0.3s;
+    width: 100%;
 }
 
 .message-section button:hover {
-    background-color: #00f2fe;
+    opacity: 0.9;
 }
 
 /* Footer */
@@ -138,11 +191,13 @@ footer {
     text-align: center;
     padding: 40px 0;
     color: #888;
-    font-size: 0.9em;
 }
 
 /* Mobiele aanpassingen */
 @media (max-width: 600px) {
-    header h1 { font-size: 1.8em; }
-    .status-label { display: block; width: 100%; margin-bottom: 5px; color: #888; }
+    header h1 { font-size: 2em; }
+    .hero-overlay { padding: 60px 0; }
+    .main-content { margin-top: -20px; }
+    .status-item { flex-direction: column; align-items: flex-start; }
+    .status-icon { margin-bottom: 5px; }
 }
