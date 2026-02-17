@@ -1,31 +1,40 @@
-/* CONFIGURATIE VOOR SPIESSE
-   Pas hieronder de tekst aan om de website te updaten.
-*/
+/* CONFIGURATIE VOOR SPIESSE */
 
-// DEEL 1: De statusbalk bovenaan
+// DEEL 1: Status
 const huidigeStatus = {
-    locatie: "AZ Delta, Kamer 510",
-    stemming: "Hoopvol & positief",
-    bezoek: "Voorlopig volgens de gewone bezoekuren tussen 14u-20u" // Bijv: "Welkom tussen 14u-16u"
+    locatie: "AZ Ziekenhuis, Kamer 304",
+    stemming: "Hoopvol & beetje moe",
+    bezoek: "Even wachten tot na de operatie"
 };
 
-// DEEL 2: De updates
-// Tip: Voeg nieuwe updates gewoon bovenaan in de lijst toe.
+// DEEL 2: Updates met FOTO'S
+// Je kunt nu een regel 'fotoUrl' toevoegen.
+// Zorg dat je foto eerst geupload is naar je 'afbeeldingen' map op GitHub.
 const updates = [
     {
         datum: "18 Februari 2026",
-        tijd: "09:00",
-        bericht: "Goedemorgen allemaal. Ik ben net aangekomen in het ziekenhuis. De verpleging is hier erg vriendelijk. Ik installeer me nu en wacht op de dokter voor de laatste briefing."
+        tijd: "10:30",
+        bericht: "Ik ben geïnstalleerd op de kamer. Het uitzicht is gelukkig best oké! Nu wachten op de eerste onderzoeken.",
+        // VORBEELD VAN EEN FOTO TOEVOEGEN:
+        // Zorg dat de bestandsnaam exact klopt met wat je uploadt.
+        // Als je geen foto hebt, verwijder je deze regel 'fotoUrl' gewoon.
+        fotoUrl: "afbeeldingen/kamer-uitzicht.jpg" 
     },
     {
-        datum: "15 Februari 2026",
-        tijd: "22:00",
-        bericht: "We keren ruim een jaar terug in de tijd. We spreken eind 2024, begin 2025."
+        datum: "18 Februari 2026",
+        tijd: "09:00",
+        bericht: "Goedemorgen allemaal. Ik ben net aangekomen in het ziekenhuis. De verpleging is hier erg vriendelijk."
+        // Deze update heeft geen 'fotoUrl' regel, dus toont hij alleen tekst.
+    },
+    {
+        datum: "17 Februari 2026",
+        tijd: "20:00",
+        bericht: "De koffer is gepakt! Morgen is de grote dag. Ik ben best zenuwachtig."
     }
 ];
 
 /* ----------------------------------------------------------
-   HIERONDER HOEF JE NIETS AAN TE PASSEN (TECHNISCHE LOGICA)
+   TECHNISCHE LOGICA (NIET AANPASSEN)
    ----------------------------------------------------------
 */
 
@@ -36,19 +45,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function laadStatus() {
     const statusDiv = document.getElementById('status-display');
-    
     const html = `
         <div class="status-item">
-            <span class="status-label">📍 Locatie:</span> ${huidigeStatus.locatie}
+            <span class="status-icon">📍</span> 
+            <strong>Locatie:</strong> &nbsp; ${huidigeStatus.locatie}
         </div>
         <div class="status-item">
-            <span class="status-label">😊 Gevoel:</span> ${huidigeStatus.stemming}
+            <span class="status-icon">😊</span>
+            <strong>Gevoel:</strong> &nbsp; ${huidigeStatus.stemming}
         </div>
         <div class="status-item">
-            <span class="status-label">👥 Bezoek:</span> ${huidigeStatus.bezoek}
+            <span class="status-icon">👥</span>
+            <strong>Bezoek:</strong> &nbsp; ${huidigeStatus.bezoek}
         </div>
     `;
-    
     statusDiv.innerHTML = html;
 }
 
@@ -56,8 +66,17 @@ function laadUpdates() {
     const timelineDiv = document.getElementById('timeline');
     let html = '';
 
-    // We lopen door de updates lijst heen
     updates.forEach(update => {
+        // We kijken of er een fotoUrl is ingevuld voor deze update
+        let imageHtml = '';
+        if (update.fotoUrl) {
+            imageHtml = `
+                <div class="update-image-container">
+                    <img src="${update.fotoUrl}" alt="Foto bij update" class="update-image">
+                </div>
+            `;
+        }
+
         html += `
             <div class="update-card">
                 <div class="update-header">
@@ -67,10 +86,10 @@ function laadUpdates() {
                 <div class="update-text">
                     ${update.bericht}
                 </div>
+                ${imageHtml}
             </div>
         `;
     });
 
     timelineDiv.innerHTML = html;
-
 }
