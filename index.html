@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiesse's Herstel Updates</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Spiesse's Herstel Blog</h1>
+            <p class="subtitle">Volg hier mijn verblijf en updates</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="status-card">
+            <h2>Huidige Status</h2>
+            <div id="status-display" class="status-content">
+                </div>
+        </section>
+
+        <section class="timeline-section">
+            <h2>Laatste Updates</h2>
+            <div id="timeline" class="timeline">
+                </div>
+        </section>
+
+        <section class="message-section">
+            <h2>Laat een berichtje achter</h2>
+            <p>Ik lees alles, maar kan misschien niet meteen antwoorden.</p>
+            
+            <form action="https://formsubmit.co/davidspiesschaert1@gmail.com" method="POST">
+                <input type="hidden" name="_next" value="https://jouwnaam.github.io/mijn-herstel-blog/">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <input type="text" name="naam" placeholder="Jouw naam" required>
+                <input type="email" name="email" placeholder="Jouw e-mailadres (optioneel)" >
+                <textarea name="bericht" placeholder="Jouw boodschap voor Spiesse..." rows="4" required></textarea>
+                
+                <button type="submit">Verstuur bericht</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Spiesse - Bedankt voor de steun!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
