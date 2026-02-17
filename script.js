@@ -39,6 +39,7 @@ De verpleegster stond ons al op te wachten aan de schuifdeur, klaar om ons naar 
 
 Zon, zee en strand wordt het niet helaas. 24 graden en droog, dat wel voor de komende weken.
         fotoUrl: "afbeeldingen/Intake.jpeg"
+        `
         // Geen foto hier, dat mag.
     }, // <--- VERGEET DEZE KOMMA NIET
     {
