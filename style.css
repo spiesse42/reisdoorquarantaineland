@@ -1,23 +1,17 @@
 /* --- KLEURENPALET & INSTELLINGEN --- */
 :root {
-    --primary-teal: #38b2ac;     /* Fris mint/teal */
-    --primary-dark: #2c7a7b;     /* Donkerder teal voor contrast */
-    --accent-warm: #f6ad55;      /* Warm oranje/geel voor accenten */
-    --bg-light: #f8fafc;         /* Zeer lichte achtergrondkleur */
-    --text-dark: #2d3748;        /* Donkergrijs voor tekst (leest fijner dan zwart) */
-    --text-muted: #718096;       /* Iets lichter grijs voor datums etc. */
-    
+    --primary-teal: #38b2ac;
+    --primary-dark: #2c7a7b;
+    --accent-warm: #f6ad55;
+    --bg-light: #f8fafc;
+    --text-dark: #2d3748;
+    --text-muted: #718096;
     --font-heading: 'Merriweather', serif;
     --font-body: 'Montserrat', sans-serif;
-
-    --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1); /* Zachte schaduw */
+    --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
 }
 
-/* --- ALGEMENE BASIS --- */
-/* BELANGRIJK: Dit zorgt dat witruimtes en breedtes altijd kloppen */
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     font-family: var(--font-body);
@@ -43,22 +37,20 @@ h1, h2, h3 {
     margin-bottom: 30px;
     position: relative;
     display: inline-block;
-    /* Terug links uitgelijnd */
     text-align: left;
 }
 
-/* Het kleine oranje streepje onder titels */
 .section-title::after {
     content: '';
     display: block;
-    width: 60px; /* Vaste breedte voor een strakker effect links */
+    width: 60px;
     height: 4px;
     background-color: var(--accent-warm);
     border-radius: 2px;
     margin-top: 5px;
 }
 
-/* --- DE GOLVENDE HEADER --- */
+/* --- HEADER --- */
 .wave-header {
     position: relative;
     background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-dark) 100%);
@@ -82,7 +74,6 @@ h1, h2, h3 {
     margin-top: 10px;
 }
 
-/* De SVG golf vorm */
 .custom-shape-divider-bottom-1678886400 {
     position: absolute;
     bottom: 0;
@@ -100,20 +91,15 @@ h1, h2, h3 {
     height: 120px;
 }
 
-.custom-shape-divider-bottom-1678886400 .shape-fill {
-    fill: var(--bg-light);
-}
+.custom-shape-divider-bottom-1678886400 .shape-fill { fill: var(--bg-light); }
 
-
-/* --- LAY-OUT EN ZWEVENDE KAARTEN --- */
-
+/* --- KAARTEN --- */
 .main-container-offset {
     position: relative;
     margin-top: -100px; 
     z-index: 10;
 }
 
-/* De algemene stijl voor witte kaarten */
 section, .update-card {
     background: white;
     border-radius: 20px;
@@ -121,7 +107,6 @@ section, .update-card {
     box-shadow: var(--card-shadow);
 }
 
-/* Specifieke stijl voor de statuskaart bovenaan */
 .floating-card {
     text-align: center;
     margin-bottom: 60px;
@@ -153,22 +138,16 @@ section, .update-card {
     color: var(--primary-teal);
 }
 
-/* --- HOOFD LAYOUT --- */
+/* --- LAYOUT --- */
 .content-layout {
     display: flex;
     gap: 40px;
 }
 
-.timeline-column {
-    flex: 2;
-}
+.timeline-column { flex: 2; }
+.sidebar-column { flex: 1; }
 
-.sidebar-column {
-    flex: 1;
-}
-
-
-/* --- DE TIJDLIJN --- */
+/* --- TIJDLIJN --- */
 .timeline-wrapper {
     position: relative;
     padding-left: 40px;
@@ -192,9 +171,7 @@ section, .update-card {
     transition: transform 0.3s ease;
 }
 
-.update-card:hover {
-    transform: translateY(-5px);
-}
+.update-card:hover { transform: translateY(-3px); }
 
 .update-card::before {
     content: '';
@@ -233,31 +210,80 @@ section, .update-card {
     border-radius: 20px;
 }
 
-.update-text {
-    font-size: 1.1em;
-}
+.update-text { font-size: 1.1em; }
 
-.update-image-container {
+/* --- NIEUW: FOTO GALERIJ (De tegels) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Automatisch 2 of meer naast elkaar */
+    gap: 15px;
     margin-top: 25px;
 }
 
-.update-image {
+.gallery-item {
     width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    height: 150px; /* Vaste hoogte voor strakke tegels */
+    object-fit: cover; /* Zorgt dat de foto mooi vult zonder uitrekken */
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+.gallery-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
 
-/* --- HET FORMULIER (Aangepast) --- */
+/* --- NIEUW: LIGHTBOX (Grote weergave) --- */
+.lightbox {
+    display: none; /* Standaard verborgen */
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Donkere achtergrond */
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    animation: zoom 0.3s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover { color: #bbb; }
+
+
+/* --- FORMULIER --- */
 .sticky-sidebar {
     position: sticky;
     top: 40px;
 }
 
-.message-section {
-    text-align: left; /* Terug links uitgelijnd */
-}
-
+.message-section { text-align: left; }
 .small-text {
     color: var(--text-muted);
     font-size: 0.9em;
@@ -269,8 +295,7 @@ section, .update-card {
     margin-bottom: 25px;
 }
 
-.input-group input, 
-.input-group textarea {
+.input-group input, .input-group textarea {
     width: 100%;
     padding: 15px;
     border: 2px solid #e2e8f0;
@@ -294,19 +319,14 @@ section, .update-card {
     background: transparent;
 }
 
-/* Interactie effecten */
-.input-group input:focus,
-.input-group textarea:focus,
-.input-group input:valid,
-.input-group textarea:valid {
+.input-group input:focus, .input-group textarea:focus,
+.input-group input:valid, .input-group textarea:valid {
     border-color: var(--primary-teal);
     background: white;
 }
 
-.input-group input:focus ~ label,
-.input-group textarea:focus ~ label,
-.input-group input:valid ~ label,
-.input-group textarea:valid ~ label {
+.input-group input:focus ~ label, .input-group textarea:focus ~ label,
+.input-group input:valid ~ label, .input-group textarea:valid ~ label {
     top: -10px;
     font-size: 0.85em;
     color: var(--primary-teal);
@@ -338,7 +358,6 @@ section, .update-card {
     text-decoration: none;
     transform: translateY(-3px);
 }
-
 
 /* --- FOOTER & MOBIEL --- */
 footer {
