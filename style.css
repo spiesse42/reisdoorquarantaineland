@@ -228,8 +228,10 @@ section, .update-card {
 
 .gallery-item {
     width: 100%;
-    height: 150px; /* DIT MAAKT DE FOTO'S KLEIN */
-    object-fit: cover;
+    height: 150px; /* Vaste hoogte voor strakke tegels */
+    /* DIT IS DE WIJZIGING: 'cover' is vervangen door 'contain' */
+    object-fit: contain; /* Zorgt dat de hele foto zichtbaar is, niet bijgesneden */
+    background-color: #f0f0f0; /* Een lichtgrijze achtergrond voor de witruimte rond de foto */
     border-radius: 12px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
