@@ -32,7 +32,7 @@ Laat maar komen, ben er klaar voor!
         // NIEUW SYSTEEM: Meerdere foto's in een lijstje
         // Zorg dat je bestandsnamen op GitHub GEEN SPATIES hebben (bv. "cocktail.jpg" ipv "cocktail chemo.jpg")
         fotos: [
-            "afbeeldingen/cocktail.JPG", 
+            "afbeeldingen/chemo.JPG", 
             "afbeeldingen/calorietjes.JPG"
         ]
     },
@@ -67,7 +67,7 @@ Zo ben je vlug patiënt, nou nou. Deze namiddag nog een zenuw- en spieronderzoek
 Op naar het volgende zou ik zeggen...
         `,
         // OUDE SYSTEEM (werkt ook nog):
-        fotoUrl: "afbeeldingen/catheter.JPG"
+        fotoUrl: "afbeeldingen/centrale_catheter.JPG"
     }, 
     {
         datum: "16 Februari 2026",
@@ -183,3 +183,4 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
