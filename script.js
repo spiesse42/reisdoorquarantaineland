@@ -1,19 +1,44 @@
-/* CONFIGURATIE VOOR SPIESSE */
+u/* CONFIGURATIE VOOR SPIESSE */
 
 // DEEL 1: Status
 const huidigeStatus = {
     locatie: "AZ Delta kamer 510",
     stemming: "Hoopvol & chemotioneel",
-    bezoek: "De gewone bezoekuren: tussen 14u en 20u"
+    bezoek: "14u tot 20u"
 };
 
 // DEEL 2: Updates
 const updates = [
    {
+        datum: "18 Februari 2026",
+        tijd: "10:36u",
+        bericht: `
+Nacht 2 van ... zit er op. En het was terug nen goeien.
+
+Gisterennamiddag en -avond niet al te veel last ondervonden van de chemo. Alles is goed verlopen, op een kwartier was het zakske al leeg en mijn maag vol:
+3 potjes ijscrème en nen halve liter koude limonade met ijsblokken. Allemaal broodnodig om de mondslijmvliezen zoveel mogelijk te vrijwaren van de chemo,
+het is namelijk een vaak voorkomend probleem dat de slijmvliezen van het spijsverteringsstelsel kunnen beschadigd rakenn en dan wordt het wel moeilijk
+om te eten.
+
+Na het deugdoend bezoek van mijn piebe kon ik rustig aan de avond beginnen. Rond 21u iets gekregen tegen de misselijkheid, had toch wat last van 'een zware maag'
+maar kan ook komen door de 4 boterhammen met beleg als avondmaal...
+
+Vandaag staat er niks op het programma dus officieel een rustdag. Focus kan gelegd worden op morgennamiddag: de terugplaatsing van mijn eigen stamcellen.
+
+Spiesse wordt een stukske herboren, wel wel wel...
+
+Laat maar komen, ben er klaar voor!
+       `,
+        fotoUrl: "afbeeldingen/cocktail chemo.JPG"
+       `,
+       fotoUrl: "afbeeldingen/calorietjes.JPG"
+
+    }, 
+    {
         datum: "17 Februari 2026",
         tijd: "05:00u",
         bericht: `
-Nacht 1 van ... zit er op. De kortheid van de nachtheid heeft niet moeten onderdoen aan hoe ik geslapen heb. Redelijke nacht gehad, mede dankzij
+Nacht 1 van ... zit er op. De kortheid van de nacht heeft niet moeten onderdoen aan hoe ik geslapen heb. Redelijke nacht gehad, mede dankzij
 mijn eigen hoofdkussen en het ontbreken van een snurkende gebuur.
 
 Binnen een paar uur begint de aftelklok echt wel dicht bij 11u te komen. Belangrijk moment 1 van 2 staat dan op den agenda: 1 zware cocktail om
@@ -136,6 +161,7 @@ function laadUpdates() {
 
     timelineDiv.innerHTML = html;
 }
+
 
 
 
