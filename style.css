@@ -218,24 +218,23 @@ section, .update-card {
 
 .update-text { font-size: 1.1em; }
 
-/* --- FOTO GALERIJ (De tegels) --- */
+/* --- FOTO GALERIJ (Aangepast!) --- */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: flex;          /* GEEN grid meer, maar flexibel */
+    flex-wrap: wrap;        /* Als het niet past, ga naar volgende regel */
     gap: 15px;
     margin-top: 25px;
 }
 
 .gallery-item {
-    width: 100%;
-    height: 150px; /* Vaste hoogte voor strakke tegels */
-    /* DIT IS DE WIJZIGING: 'cover' is vervangen door 'contain' */
-    object-fit: contain; /* Zorgt dat de hele foto zichtbaar is, niet bijgesneden */
-    background-color: #f0f0f0; /* Een lichtgrijze achtergrond voor de witruimte rond de foto */
+    height: 200px;          /* Vaste hoogte voor desktop */
+    width: auto;            /* Breedte past zich automatisch aan de foto aan! */
+    object-fit: cover;      /* Zorgt dat de foto mooi vult */
     border-radius: 12px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    /* Geen achtergrondkleur meer */
 }
 
 .gallery-item:hover {
@@ -367,7 +366,7 @@ section, .update-card {
     transform: translateY(-3px);
 }
 
-/* --- FOOTER & MOBIEL --- */
+/* --- FOOTER & MOBIEL AANPASSINGEN --- */
 footer {
     text-align: center;
     padding: 60px 0;
@@ -384,4 +383,11 @@ footer {
     .status-icon { margin-right: 20px; margin-bottom: 0; width: 50px; height: 50px; line-height: 50px; font-size: 1.5em;}
     .timeline-wrapper { padding-left: 30px; }
     .update-card::before { left: -36px; width: 16px; height: 16px; top: 28px;}
+    
+    /* OP MOBIEL: Foto's groot en breed */
+    .gallery-item {
+        width: 100%;    /* Volle breedte */
+        height: auto;   /* Hoogte past zich aan */
+        max-height: 400px; /* Niet té hoog */
+    }
 }
