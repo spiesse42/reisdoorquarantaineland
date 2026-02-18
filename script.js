@@ -29,9 +29,10 @@ Spiesse wordt een stukske herboren, wel wel wel...
 
 Laat maar komen, ben er klaar voor!
         `,
-        // NIEUW: Meerdere foto's voor deze update
+        // NIEUW SYSTEEM: Meerdere foto's in een lijstje
+        // Zorg dat je bestandsnamen op GitHub GEEN SPATIES hebben (bv. "cocktail.jpg" ipv "cocktail chemo.jpg")
         fotos: [
-            "afbeeldingen/cocktail chemo.JPG", 
+            "afbeeldingen/cocktail.JPG", 
             "afbeeldingen/calorietjes.JPG"
         ]
     },
@@ -47,7 +48,6 @@ mijne binnenkant voor te bereiden (lees: kapot te maken) zodat de stamcellen van
 
 Laat maar komen, ben er klaar voor!
         `
-        // Geen foto's bij deze update
     }, 
     {
         datum: "16 Februari 2026",
@@ -66,7 +66,8 @@ Zo ben je vlug patiënt, nou nou. Deze namiddag nog een zenuw- en spieronderzoek
 
 Op naar het volgende zou ik zeggen...
         `,
-        fotoUrl: "afbeeldingen/centrale catheter.JPG"
+        // OUDE SYSTEEM (werkt ook nog):
+        fotoUrl: "afbeeldingen/catheter.JPG"
     }, 
     {
         datum: "16 Februari 2026",
@@ -86,8 +87,7 @@ Op naar de installatie van de kamer en hetgeen daarop volgt.
 ];
 
 /* ----------------------------------------------------------
-   TECHNISCHE LOGICA 
-   (Alles hieronder regelt de weergave op de website)
+   TECHNISCHE LOGICA (Hier gebeurt de magie)
    ----------------------------------------------------------
 */
 
@@ -122,27 +122,33 @@ function laadUpdates() {
     let html = '';
 
     updates.forEach(update => {
-        let imageHtml = '';
-
-        // OPTIE 1: De nieuwe manier (Lijst met foto's)
+        
+        // FOTO LOGICA: We verzamelen alle foto's in één lijstje
+        let alleFotos = [];
         if (update.fotos && update.fotos.length > 0) {
-            update.fotos.forEach(url => {
-                imageHtml += `
-                <div class="update-image-container">
-                    <img src="${url}" alt="Foto bij update" class="update-image" onerror="this.style.display='none'">
-                </div>`;
-            });
-        } 
-        // OPTIE 2: De oude manier (1 fotoUrl) - voor backwards compatibility
-        else if (update.fotoUrl) {
-            imageHtml = `
-                <div class="update-image-container">
-                    <img src="${update.fotoUrl}" alt="Foto bij update" class="update-image" onerror="this.style.display='none'">
-                </div>
-            `;
+            alleFotos = update.fotos;
+        } else if (update.fotoUrl) {
+            alleFotos = [update.fotoUrl];
         }
 
-        // Tekst opmaak met slimme alinea's
+        // We bouwen de HTML voor de foto's (als tegels)
+        let fotoHtml = '';
+        if (alleFotos.length > 0) {
+            fotoHtml = '<div class="gallery-grid">'; // Start rooster
+            alleFotos.forEach(url => {
+                // We geven de foto de klasse 'gallery-item' zodat de CSS hem klein maakt
+                fotoHtml += `
+                    <img src="${url}" 
+                         alt="Foto update" 
+                         class="gallery-item" 
+                         onclick="openLightbox('${url}')"
+                         onerror="this.style.display='none'">
+                `;
+            });
+            fotoHtml += '</div>'; // Einde rooster
+        }
+
+        // Tekst opmaak
         let opgemaaktBericht = "";
         if (update.bericht) {
             let metAlineas = update.bericht.replace(/\n\s*\n/g, '<br><br>');
@@ -158,10 +164,22 @@ function laadUpdates() {
                 <div class="update-text">
                     ${opgemaaktBericht}
                 </div>
-                ${imageHtml}
+                ${fotoHtml}
             </div>
         `;
     });
 
     timelineDiv.innerHTML = html;
+}
+
+// Functies voor de grote foto weergave
+function openLightbox(url) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightbox.style.display = "block";
+    lightboxImg.src = url;
+}
+
+function sluitLightbox() {
+    document.getElementById('lightbox').style.display = "none";
 }
