@@ -31,8 +31,9 @@ Laat maar komen, ben er klaar voor!
         // NIEUW SYSTEEM: Meerdere foto's in een lijstje
         // Zorg dat je bestandsnamen op GitHub GEEN SPATIES hebben (bv. "cocktail.jpg" ipv "cocktail chemo.jpg")
         fotos: [
-            "afbeeldingen/chemo.JPG", 
-            "afbeeldingen/calorietjes.JPG"
+            "afbeeldingen/Fiets.JPG", 
+            "afbeeldingen/Puzzel.JPG"
+            "afbeeldingen/Puzzel2.JPG"
         ]
     },{
         datum: "18 Februari 2026",
@@ -208,5 +209,6 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
 
