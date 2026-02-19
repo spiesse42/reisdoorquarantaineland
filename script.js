@@ -10,6 +10,31 @@ const huidigeStatus = {
 // DEEL 2: Updates
 const updates = [
     {
+        datum: "19 Februari 2026",
+        tijd: "08:30u",
+        bericht: `
+Nacht 3 van ... zit er op. En het was terug nen goeien.
+
+D-day vandaag: De Dag Dat David Dju Der past niks meer om het belangrijkste de Duiden.
+
+Dan zeg ik het maar zo: vandaag krijg ik mijn eigen stamcellen terug. Een héél belangrijke fase,
+mss de belangrijkse om Mr. Kahler hopelijk voor een lange tijd het zwijgen op te leggen.
+
+Gisteren was het dus rustdag. 's Namiddags terug mogen genieten van de aanwezigheid van mijn liefste. Na een 
+update van het thuisfront hebben we onze focus op ontspanning gelegd en samen gepuzzeld. Cadeautje van de 
+volleybal bende: nen groepsfoto in 1000 stukken. Leuke cadeau die de komende dagen veel ontspanning kan geven.
+
+Ga er aan beginnen sie. We gaan nog een paar uurkes in relax-modus en dan in gevechtsmodus.
+
+Laat maar komen, ben er klaar voor!
+        `,
+        // NIEUW SYSTEEM: Meerdere foto's in een lijstje
+        // Zorg dat je bestandsnamen op GitHub GEEN SPATIES hebben (bv. "cocktail.jpg" ipv "cocktail chemo.jpg")
+        fotos: [
+            "afbeeldingen/chemo.JPG", 
+            "afbeeldingen/calorietjes.JPG"
+        ]
+    },{
         datum: "18 Februari 2026",
         tijd: "10:36u",
         bericht: `
@@ -183,4 +208,5 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
