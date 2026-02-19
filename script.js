@@ -32,7 +32,7 @@ Laat maar komen, ben er klaar voor!
         // Zorg dat je bestandsnamen op GitHub GEEN SPATIES hebben (bv. "cocktail.jpg" ipv "cocktail chemo.jpg")
         fotos: [
             "afbeeldingen/Fiets.JPG", 
-            "afbeeldingen/Puzzel.JPG"
+            "afbeeldingen/Puzzel.JPG",
             "afbeeldingen/Puzzel2.JPG"
         ]
     },
@@ -210,6 +210,7 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
 
 
