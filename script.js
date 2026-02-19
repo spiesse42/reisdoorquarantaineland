@@ -35,7 +35,8 @@ Laat maar komen, ben er klaar voor!
             "afbeeldingen/Puzzel.JPG"
             "afbeeldingen/Puzzel2.JPG"
         ]
-    },{
+    },
+    {
         datum: "18 Februari 2026",
         tijd: "10:36u",
         bericht: `
@@ -209,6 +210,7 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
 
 
