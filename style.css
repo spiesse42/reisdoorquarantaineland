@@ -218,28 +218,43 @@ section, .update-card {
 
 .update-text { font-size: 1.1em; }
 
-/* --- FOTO GALERIJ (Aangepast!) --- */
+/* --- FOTO GALERIJ --- */
 .gallery-grid {
-    display: flex;          /* GEEN grid meer, maar flexibel */
-    flex-wrap: wrap;        /* Als het niet past, ga naar volgende regel */
+    display: flex;          
+    flex-wrap: wrap;        
     gap: 15px;
     margin-top: 25px;
 }
 
 .gallery-item {
-    height: 200px;          /* Vaste hoogte voor desktop */
-    width: auto;            /* Breedte past zich automatisch aan de foto aan! */
-    object-fit: cover;      /* Zorgt dat de foto mooi vult */
+    height: 200px;          
+    width: auto;            
+    object-fit: contain;      
+    background-color: #f0f0f0; 
     border-radius: 12px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    /* Geen achtergrondkleur meer */
 }
 
 .gallery-item:hover {
     transform: scale(1.03);
     box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+/* --- VIDEO SPELER (Nieuw!) --- */
+.update-video-container {
+    margin-top: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.update-video {
+    width: 100%;
+    display: block;
+    background-color: #1a2a3a; /* Zwarte/donkerblauwe achtergrond voor de videospeler */
+    outline: none;
 }
 
 /* --- LIGHTBOX (Grote weergave) --- */
@@ -384,10 +399,9 @@ footer {
     .timeline-wrapper { padding-left: 30px; }
     .update-card::before { left: -36px; width: 16px; height: 16px; top: 28px;}
     
-    /* OP MOBIEL: Foto's groot en breed */
     .gallery-item {
-        width: 100%;    /* Volle breedte */
-        height: auto;   /* Hoogte past zich aan */
-        max-height: 400px; /* Niet té hoog */
+        width: 100%;    
+        height: auto;   
+        max-height: 400px; 
     }
 }
