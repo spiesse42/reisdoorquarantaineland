@@ -10,8 +10,8 @@ const huidigeStatus = {
 // DEEL 2: Updates
 const updates = [
     {
-        datum: "19 Februari 2026",
-        tijd: "08:30u",
+        datum: "20 Februari 2026",
+        tijd: "08:11u",
         bericht: `
 Nacht 4 van ... zit er op. En het was terug nen redelijken goeien. Zot e...
 
@@ -251,6 +251,7 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
 
 
