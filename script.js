@@ -8,9 +8,8 @@ const huidigeStatus = {
 };
 
 // DEEL 2: Updates
-// TIP VOOR VIDEO'S: Voeg de regel videoUrl toe met de link naar je .mp4 bestand.
 const updates = [
-{
+    {
         datum: "20 Februari 2026",
         tijd: "08:11u",
         bericht: `
@@ -41,17 +40,19 @@ we gaan er voor en we blijven positief! Ieder uur dat ik nu nog bien ben is meeg
 
 Samen sterk!
         `,
-        // NIEUW SYSTEEM: Meerdere foto's in een lijstje
-        // Zorg dat je bestandsnamen op GitHub GEEN SPATIES hebben (bv. "cocktail.jpg" ipv "cocktail chemo.jpg")
+        // FOTO'S in dit lijstje
         fotos: [
             "afbeeldingen/diepvries.JPG", 
             "afbeeldingen/stamcellen.JPG",
-            videoUrl: "afbeeldingen/ontdooien.MP4",
-            "afbeeldingen/aankoppelen.JPG",
-            videoUrl: "afbeeldingen/inlopen.MP4"
+            "afbeeldingen/aankoppelen.JPG"
+        ],
+        // VIDEO'S in dit nieuwe lijstje
+        videos: [
+            "afbeeldingen/ontdooien.MP4",
+            "afbeeldingen/inlopen.MP4"
         ]
     },
-{
+    {
         datum: "19 Februari 2026",
         tijd: "08:30u",
         bericht: `
@@ -70,8 +71,6 @@ Ga er aan beginnen sie. We gaan nog een paar uurkes in relax-modus en dan in gev
 
 Laat maar komen, ben er klaar voor!
         `,
-        // NIEUW SYSTEEM: Meerdere foto's in een lijstje
-        // Zorg dat je bestandsnamen op GitHub GEEN SPATIES hebben (bv. "cocktail.jpg" ipv "cocktail chemo.jpg")
         fotos: [
             "afbeeldingen/Fiets.JPG", 
             "afbeeldingen/Puzzel.JPG",
@@ -98,8 +97,6 @@ Spiesse wordt een stukske herboren, wel wel wel...
 
 Laat maar komen, ben er klaar voor!
         `,
-        // NIEUW SYSTEEM: Meerdere foto's in een lijstje
-        // Zorg dat je bestandsnamen op GitHub GEEN SPATIES hebben (bv. "cocktail.jpg" ipv "cocktail chemo.jpg")
         fotos: [
             "afbeeldingen/chemo.JPG", 
             "afbeeldingen/calorietjes.JPG"
@@ -135,7 +132,6 @@ Zo ben je vlug patiënt, nou nou. Deze namiddag nog een zenuw- en spieronderzoek
 
 Op naar het volgende zou ik zeggen...
         `,
-        // OUDE SYSTEEM (werkt ook nog):
         fotoUrl: "afbeeldingen/centrale_catheter.JPG"
     }, 
     {
@@ -192,7 +188,7 @@ function laadUpdates() {
 
     updates.forEach(update => {
         
-        // FOTO LOGICA: We verzamelen alle foto's in één lijstje
+        // FOTO LOGICA
         let alleFotos = [];
         if (update.fotos && update.fotos.length > 0) {
             alleFotos = update.fotos;
@@ -200,7 +196,6 @@ function laadUpdates() {
             alleFotos = [update.fotoUrl];
         }
 
-        // We bouwen de HTML voor de foto's
         let fotoHtml = '';
         if (alleFotos.length > 0) {
             fotoHtml = '<div class="gallery-grid">'; 
@@ -216,17 +211,26 @@ function laadUpdates() {
             fotoHtml += '</div>'; 
         }
 
-        // VIDEO LOGICA: HTML toevoegen voor de videospeler
+        // VIDEO LOGICA (Nieuw: ondersteuning voor meerdere video's)
+        let alleVideos = [];
+        if (update.videos && update.videos.length > 0) {
+            alleVideos = update.videos;
+        } else if (update.videoUrl) {
+            alleVideos = [update.videoUrl];
+        }
+
         let videoHtml = '';
-        if (update.videoUrl) {
-            videoHtml = `
-                <div class="update-video-container">
-                    <video controls class="update-video">
-                        <source src="${update.videoUrl}" type="video/mp4">
-                        Oeps, je browser ondersteunt het afspelen van deze video niet.
-                    </video>
-                </div>
-            `;
+        if (alleVideos.length > 0) {
+            alleVideos.forEach(url => {
+                videoHtml += `
+                    <div class="update-video-container" style="margin-top: 15px;">
+                        <video controls class="update-video">
+                            <source src="${url}" type="video/mp4">
+                            Oeps, je browser ondersteunt het afspelen van deze video niet.
+                        </video>
+                    </div>
+                `;
+            });
         }
 
         // Tekst opmaak
