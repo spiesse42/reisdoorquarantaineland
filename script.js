@@ -13,6 +13,47 @@ const updates = [
         datum: "19 Februari 2026",
         tijd: "08:30u",
         bericht: `
+Nacht 4 van ... zit er op. En het was terug nen redelijken goeien. Zot e...
+
+Gisteren was het dus zover: Spiesse kreeg zijn eigen stamcellen terug om de strijd verder
+aan te gaan tegen Mr. Kahler. En mijne mental coach was er ook terug bij, merci liefje
+om er bij te zijn!
+
+Om iets na 13u zijn ze er aan begonnen. Er waren 8 zakjes voorzien die op een 
+vlot tempo moesten inlopen in mijn infuus. De verpleegsters waren super op elkaar ingespeeld
+en hadden tijdens de drukte en het administratief werk ook nog tijd om aan Petra 
+wat uitleg te geven over de voorbereiding van de teruggave. Alles komt toe vanuit het UZ Gent
+in een soort diepvriesje. De zakjes moeten dan au bain-marie ontdooid worden om dan aan
+te koppelen.
+
+Alles is heel vlot verlopen, zonder veel ongemakken. Af en toe de smaak van surimisalade
+en een lichte druk op mijn borstkas maar dat ging snel terug weg.
+
+Voor de rest van de namiddag/avond heb ik me heel rustig gehouden, wa gepuzzeld en TV
+liggen kijken.
+
+Vanaf is het wachten. Wachten tot de bloedwaarden zakken zakken zakken door de chemo en dan
+wachten tot de stamcellen weer nieuwe witte bloedcellen, rode bloedcellen, bloedplaatjes enz
+gaan aanmaken. De komende 2 weken zullen vermoedelijk iets minder vlot verlopen, maar ook
+dat weten we en we laten ons hoofd niet zakken. Zou niet weten waarom... We staan er voor,
+we gaan er voor en we blijven positief! Ieder uur dat ik nu nog bien ben is meegenomen.
+
+Samen sterk!
+        `,
+        // NIEUW SYSTEEM: Meerdere foto's in een lijstje
+        // Zorg dat je bestandsnamen op GitHub GEEN SPATIES hebben (bv. "cocktail.jpg" ipv "cocktail chemo.jpg")
+        fotos: [
+            "afbeeldingen/diepvries.JPG", 
+            "afbeeldingen/stamcellen.JPG",
+            "afbeeldingen/ontdooien.MP4",
+            "afbeeldingen/aankoppelen.JPG",
+            "afbeeldingen/inlopen.MP4"
+        ]
+    },
+{
+        datum: "19 Februari 2026",
+        tijd: "08:30u",
+        bericht: `
 Nacht 3 van ... zit er op. En het was terug nen goeien.
 
 D-day vandaag: De Dag Dat David Dju Der past niks meer om het belangrijkste de Duiden.
@@ -210,6 +251,7 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
 
 
