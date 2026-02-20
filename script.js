@@ -8,8 +8,9 @@ const huidigeStatus = {
 };
 
 // DEEL 2: Updates
+// TIP VOOR VIDEO'S: Voeg de regel videoUrl toe met de link naar je .mp4 bestand.
 const updates = [
-    {
+{
         datum: "20 Februari 2026",
         tijd: "08:11u",
         bericht: `
@@ -45,9 +46,9 @@ Samen sterk!
         fotos: [
             "afbeeldingen/diepvries.JPG", 
             "afbeeldingen/stamcellen.JPG",
-            "afbeeldingen/ontdooien.MP4",
+            videoUrl: "afbeeldingen/ontdooien.MP4",
             "afbeeldingen/aankoppelen.JPG",
-            "afbeeldingen/inlopen.MP4"
+            videoUrl: "afbeeldingen/inlopen.MP4"
         ]
     },
 {
@@ -155,7 +156,7 @@ Op naar de installatie van de kamer en hetgeen daarop volgt.
 ];
 
 /* ----------------------------------------------------------
-   TECHNISCHE LOGICA (Hier gebeurt de magie)
+   TECHNISCHE LOGICA 
    ----------------------------------------------------------
 */
 
@@ -199,12 +200,11 @@ function laadUpdates() {
             alleFotos = [update.fotoUrl];
         }
 
-        // We bouwen de HTML voor de foto's (als tegels)
+        // We bouwen de HTML voor de foto's
         let fotoHtml = '';
         if (alleFotos.length > 0) {
-            fotoHtml = '<div class="gallery-grid">'; // Start rooster
+            fotoHtml = '<div class="gallery-grid">'; 
             alleFotos.forEach(url => {
-                // We geven de foto de klasse 'gallery-item' zodat de CSS hem klein maakt
                 fotoHtml += `
                     <img src="${url}" 
                          alt="Foto update" 
@@ -213,7 +213,20 @@ function laadUpdates() {
                          onerror="this.style.display='none'">
                 `;
             });
-            fotoHtml += '</div>'; // Einde rooster
+            fotoHtml += '</div>'; 
+        }
+
+        // VIDEO LOGICA: HTML toevoegen voor de videospeler
+        let videoHtml = '';
+        if (update.videoUrl) {
+            videoHtml = `
+                <div class="update-video-container">
+                    <video controls class="update-video">
+                        <source src="${update.videoUrl}" type="video/mp4">
+                        Oeps, je browser ondersteunt het afspelen van deze video niet.
+                    </video>
+                </div>
+            `;
         }
 
         // Tekst opmaak
@@ -233,6 +246,7 @@ function laadUpdates() {
                     ${opgemaaktBericht}
                 </div>
                 ${fotoHtml}
+                ${videoHtml}
             </div>
         `;
     });
@@ -240,7 +254,7 @@ function laadUpdates() {
     timelineDiv.innerHTML = html;
 }
 
-// Functies voor de grote foto weergave
+// Functies voor de grote foto weergave (Lightbox)
 function openLightbox(url) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -251,10 +265,3 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
-
-
-
-
-
-
-
