@@ -13,7 +13,6 @@
 
 * { box-sizing: border-box; }
 
-/* VEILIGHEIDSREGEL: Foto's mogen nooit breder zijn dan hun kader */
 img {
     max-width: 100%;
     height: auto;
@@ -242,19 +241,23 @@ section, .update-card {
     box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
-/* --- VIDEO SPELER (Nieuw!) --- */
-.update-video-container {
-    margin-top: 25px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+/* --- VIDEO SPELER (Aangepast!) --- */
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
 }
 
 .update-video {
-    width: 100%;
-    display: block;
-    background-color: #1a2a3a; /* Zwarte/donkerblauwe achtergrond voor de videospeler */
+    height: 250px; /* Mooie vaste hoogte, een tikkeltje groter dan de foto's */
+    width: auto;   /* Zorgt dat hij niet onnodig breed wordt */
+    max-width: 100%; /* Beveiliging voor smalle schermen */
+    background-color: #000; /* Zwart kader rond de video */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     outline: none;
+    object-fit: contain;
 }
 
 /* --- LIGHTBOX (Grote weergave) --- */
@@ -399,9 +402,10 @@ footer {
     .timeline-wrapper { padding-left: 30px; }
     .update-card::before { left: -36px; width: 16px; height: 16px; top: 28px;}
     
-    .gallery-item {
-        width: 100%;    
-        height: auto;   
-        max-height: 400px; 
+    /* OP MOBIEL: Foto's én video's groot en breed */
+    .gallery-item, .update-video {
+        width: 100%;    /* Volle breedte */
+        height: auto;   /* Hoogte past zich aan */
+        max-height: 400px; /* Niet té hoog */
     }
 }
