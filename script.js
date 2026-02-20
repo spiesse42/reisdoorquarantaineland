@@ -40,13 +40,11 @@ we gaan er voor en we blijven positief! Ieder uur dat ik nu nog bien ben is meeg
 
 Samen sterk!
         `,
-        // FOTO'S in dit lijstje
         fotos: [
             "afbeeldingen/diepvries.JPG", 
             "afbeeldingen/stamcellen.JPG",
             "afbeeldingen/aankoppelen.JPG"
         ],
-        // VIDEO'S in dit nieuwe lijstje
         videos: [
             "afbeeldingen/ontdooien.MP4",
             "afbeeldingen/inlopen.MP4"
@@ -211,7 +209,7 @@ function laadUpdates() {
             fotoHtml += '</div>'; 
         }
 
-        // VIDEO LOGICA (Nieuw: ondersteuning voor meerdere video's)
+        // VIDEO LOGICA (Nieuw: video's zitten nu ook in een net grid)
         let alleVideos = [];
         if (update.videos && update.videos.length > 0) {
             alleVideos = update.videos;
@@ -221,16 +219,16 @@ function laadUpdates() {
 
         let videoHtml = '';
         if (alleVideos.length > 0) {
+            videoHtml = '<div class="video-grid">'; // Zelfde soort rooster als de foto's
             alleVideos.forEach(url => {
                 videoHtml += `
-                    <div class="update-video-container" style="margin-top: 15px;">
-                        <video controls class="update-video">
-                            <source src="${url}" type="video/mp4">
-                            Oeps, je browser ondersteunt het afspelen van deze video niet.
-                        </video>
-                    </div>
+                    <video controls class="update-video" preload="metadata">
+                        <source src="${url}" type="video/mp4">
+                        Oeps, je browser ondersteunt het afspelen van deze video niet.
+                    </video>
                 `;
             });
+            videoHtml += '</div>';
         }
 
         // Tekst opmaak
