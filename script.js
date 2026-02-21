@@ -13,6 +13,38 @@ const updates = [
         datum: "20 Februari 2026",
         tijd: "08:11u",
         bericht: `
+Nacht 5 van ... zit er op. Enen in dezelfde trand/trend als gisteren.
+
+Gisteren terug rustig laten verlopen. De combinatie van stoel, zetel, bed is momenteel een goed keuze.
+Ook al zit ik in quarantaine/isolatie: ik verveel me niet.
+
+En ook, ik kan en mag me niet vervelen: nen puzzel van 1000 stukken die binnen anderhalve week klaar moet zijn,
+een quarantaine reisboek (gemaakt door Zoë, Lander en Petra) met een opdracht voor elke dag dat ik hier ben.
+Origineler kan niet denk ik! Voor de rest van de tijd heb ik tijdschriften, boeken, TV, laptop, radio enz enz.
+
+Hoe ik me zelf voel vandaag? Ook es een goeie vraag e. Ik klaag absoluut niet. Enige wat ik momenteel gewaar
+wordt is da de spijsvertering het eerste is dat 'last' heeft/geeft van de chemo. Koffie smaakt niet, gevoel
+van een zware maag is ook aanwezig. Maar zoals gezegd: ik klaag niet en krijg standaard iets tegen de slechte
+maag extra bovenop de gewone medicatie.
+
+Ga nog een beetje gaan puzzelen sie, rust in 't kopke. I like it wel op die manier...
+
+Samen sterk!
+        `,
+        fotos: [
+            "afbeeldingen/diepvries.JPG", 
+            "afbeeldingen/stamcellen.JPG",
+            "afbeeldingen/aankoppelen.JPG"
+        ],
+        videos: [
+            "afbeeldingen/ontdooien.MP4",
+            "afbeeldingen/inlopen.MP4"
+        ]
+    },
+    {
+        datum: "20 Februari 2026",
+        tijd: "08:11u",
+        bericht: `
 Nacht 4 van ... zit er op. En het was terug nen redelijken goeien. Zot e...
 
 Gisteren was het dus zover: Spiesse kreeg zijn eigen stamcellen terug om de strijd verder
@@ -267,3 +299,4 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
