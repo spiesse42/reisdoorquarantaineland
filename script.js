@@ -32,9 +32,7 @@ Ga nog een beetje gaan puzzelen sie, rust in 't kopke. I like it wel op die mani
 Samen sterk!
         `,
         fotos: [
-            "afbeeldingen/diepvries.JPG", 
-            "afbeeldingen/stamcellen.JPG",
-            "afbeeldingen/aankoppelen.JPG"
+            "afbeeldingen/Puzzel 3.JPG",
         ],
         videos: [
             "afbeeldingen/ontdooien.MP4",
@@ -299,4 +297,5 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
