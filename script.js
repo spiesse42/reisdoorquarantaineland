@@ -10,8 +10,8 @@ const huidigeStatus = {
 // DEEL 2: Updates
 const updates = [
     {
-        datum: "20 Februari 2026",
-        tijd: "08:11u",
+        datum: "21 Februari 2026",
+        tijd: "09:05u",
         bericht: `
 Nacht 5 van ... zit er op. Enen in dezelfde trand/trend als gisteren.
 
@@ -34,12 +34,7 @@ Samen sterk!
         fotos: [
             "afbeeldingen/Puzzel 3.JPG",
         ],
-        videos: [
-            "afbeeldingen/ontdooien.MP4",
-            "afbeeldingen/inlopen.MP4"
-        ]
-    },
-    {
+     {
         datum: "20 Februari 2026",
         tijd: "08:11u",
         bericht: `
@@ -297,5 +292,6 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
 
