@@ -33,7 +33,8 @@ Samen sterk!
         `,
         fotos: [
             "afbeeldingen/Puzzel 3.JPG",
-        ],
+         ]
+    },
      {
         datum: "20 Februari 2026",
         tijd: "08:11u",
@@ -292,6 +293,7 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
 
 
