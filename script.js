@@ -10,6 +10,29 @@ const huidigeStatus = {
 // DEEL 2: Updates
 const updates = [
     {
+        datum: "22 Februari 2026",
+        tijd: "08:30u",
+        bericht: `
+Nacht 6 van ... zit er op. De langsten al tot nu toe.
+
+Den eersten zaterdag hier behoort ook al tot het verleden, het gaat rap zo. Gelukkig leven we in het heden, 'k zou anders koude koffie moeten drinken nu bij mijn croissant :-)
+
+HOe mijne zaterdag was? Awel:
+Gisterenmiddag na het middageten: klopke van den hamer -> tukje nr 1: check. Net op tijd wakker om mijn Moeke Maria (ter info: 't is Marleen maar gow) te ontvangen in mijn nederige stulp hier.
+Gezellige en leuke babbel gehad op anderhalve meter afstand, we kunnen het nog :-)
+Daarna wast de beurt aan mijne lieveling om me terug enkele uren gezelschap te houden. Na de dageljkse update van het thuisfront hebben we ons terug wa beziggehouden met de puzzel.
+Doel: tegen zondagavond moet hij af zijn, moet lukken!
+
+Na het eten heb ik me nog een uurke toegelegd op de puzzel en het doel is er: hij is af. Rapper dan verwacht maar kan ook nie anders e: ik ontbreek gelijk een stukske :-)
+
+Dan maar richting mijn bedde voor TV te kijken. EUh, not. Klopke nr 2 van den hamer. Wijselijk aan toegegeven en in stukken en brokken geslapen tot zondagmorgen 7.30u.
+
+Wat brengt de zondag mij vandaag? Toch wel een stuk besef dat er iets aan het gebeuren is hier intern bij de Spiesse...
+
+Samen sterk!
+        `,
+           },
+    {
         datum: "21 Februari 2026",
         tijd: "09:05u",
         bericht: `
@@ -293,6 +316,7 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
 
 
