@@ -3,13 +3,39 @@
 // DEEL 1: Status
 const huidigeStatus = {
     locatie: "AZ Delta kamer 510",
-    stemming: "Hoopvol & chemotioneel",
+    stemming: "Laat het maar gebeuren",
     bezoek: "14u tot 20u"
 };
 
 // DEEL 2: Updates
 const updates = [
     {
+        datum: "22 -> 25 februari 2026",
+        tijd: "16:30u",
+        bericht: `
+Nacht 7, 8 en 9 van ... zitten er op. Fwef...
+
+Ge weet dat ik me afvroeg wat de zondag mij ging brengen e. Het antwoord was toen: het besef dat er iets aan
+het gebeuren is intern... Ik zat er dus boenk op e!
+
+Zondag ganse dag in mijn bed doorgebracht, geen fut om mijn ogen langer dan nodig open te houden (lees:
+just lang genoeg om iets te proberen eten). 's Avonds gelukkig nog even mijne sjoe gezien om het weekend af te sluiten.
+Maandag is nagenoeg op dezelfde manier doorgebracht: slapend/rustend. De uren laten voorbijgaan. Wetende dat dit
+'moet', zonder er dieper over na te denken of te vechten tegen de vaak: helpt toch niet.
+
+Dinsdag was een iets betere/frissere dag. Leuk bezoek gehad van goeie vrienden en dan 's avonds
+mijne sjoe en haar moe (rijm rijm) op visite gehad. De avond dan voetbalkijkend in mijn bed doorgebracht. En om
+21.30u: koorts. Ook dit is normaal in het proces. Per direct antibiotica én een paar kweekflesjes vullen met mijn (zoet)
+bloed om te laten analyseren of er een infectie kan gevonden worden.
+
+Vandaag (woensdag) ben ik bezig aan een redelijke namiddag, al zeg ik het zelf. Feit dat jullie nu terug mee zijn
+wil zeggen dat ik de fut/goesting heb om mijne laptop open te doen :-)
+
+Laat de zon maar schijnen! Ik blijf ondertussen
+
+Samen sterk!
+        `,
+           },{
         datum: "22 Februari 2026",
         tijd: "08:30u",
         bericht: `
@@ -17,7 +43,7 @@ Nacht 6 van ... zit er op. De langsten al tot nu toe.
 
 Den eersten zaterdag hier behoort ook al tot het verleden, het gaat rap zo. Gelukkig leven we in het heden, 'k zou anders koude koffie moeten drinken nu bij mijn croissant :-)
 
-HOe mijne zaterdag was? Awel:
+Hoe mijne zaterdag was? Awel:
 Gisterenmiddag na het middageten: klopke van den hamer -> tukje nr 1: check. Net op tijd wakker om mijn Moeke Maria (ter info: 't is Marleen maar gow) te ontvangen in mijn nederige stulp hier.
 Gezellige en leuke babbel gehad op anderhalve meter afstand, we kunnen het nog :-)
 Daarna wast de beurt aan mijne lieveling om me terug enkele uren gezelschap te houden. Na de dageljkse update van het thuisfront hebben we ons terug wa beziggehouden met de puzzel.
@@ -316,6 +342,7 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
 
 
