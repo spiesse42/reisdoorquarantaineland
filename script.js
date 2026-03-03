@@ -10,6 +10,41 @@ const huidigeStatus = {
 // DEEL 2: Updates
 const updates = [
     {
+        datum: "26 februari -> 3 maart 2026",
+        tijd: "16:30u",
+        bericht: `
+Nacht 10 tot 15 van ... zitten er op. Halfweg?
+
+Hello Hello, hier ben ik weer sie. Al weer effe geleden e?
+
+Kort effe nen update geven: sedert vorige verslagje en nu heb ik redelijk veel op de schommel gezeten. Nie in 't echt uiteraard want ik mag nog altijd
+niet uit mijn kamer :-) Ik zat op de schommel van nen 'goeien' dag die gevolgd werd door nen 'minderen' dag, en da herhaalde zich tot en met het
+weekend eigenlijk.
+
+Op zaterdag was er dan een toch wel belangrijk moment in de therapie: mijn haar had zijn karakter verloren en is beginnen uitvallen :-) Iets wat ik wou 
+beleven en ondervinden. Moet zeggen: ca va. Uiteraard wetende dat het haarverlies iets tijdelijks is en ik sowieso binnen x aantal weken/maanden terug haar
+zal beginnen krijgen. Rost met krullen lijkt me wel iets :-)
+
+Zondag was het dan de verjaardag van mijne sjoe. Zoë en Lander hadden thuis een mooi ontbijt voorzien en gans de tafel versiert met foto's en balonnen. Heel
+mooi gedaan van hen!! 's Namiddags hebben we hier dan op de kamer met ons 4 het zo aangenaam mogelijk gemaakt: kort een spelletje gespeeld en dan mochten
+ze allemaal een deel van mijn haar afdoen met de tondeuze. Ge moest da geen 2 keer zeggen tegen onze Lander :-)
+
+Gisteren was terug een redelijke dag en vandaag lijkt ook zo te starten. Vingers kruisen dat het zo blijft.
+
+O ja, den dip (moeilijkste periode) lijkt op zijn einde te zijn, alle bloedwaarden beginnen lichtjes te stijgen. YIHAA!
+
+Groetjes,
+
+kletse Spiesse, en hij blijft
+
+Samen sterk!
+        `,
+        fotos: [
+            "afbeeldingen/klets.JPG", 
+            
+        ],
+           },
+    {
         datum: "22 -> 25 februari 2026",
         tijd: "16:30u",
         bericht: `
@@ -342,6 +377,7 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
 
 
