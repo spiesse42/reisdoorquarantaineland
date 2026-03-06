@@ -2,9 +2,9 @@
 
 // DEEL 1: Status
 const huidigeStatus = {
-    locatie: "AZ Delta kamer 510",
-    stemming: "Laat het maar gebeuren",
-    bezoek: "14u tot 20u"
+    locatie: "Home Sweet Home",
+    stemming: "Content & gemotiveerd",
+    bezoek: "is welkom als ze niet ziek zijn"
 };
 
 // DEEL 2: Updates
@@ -35,9 +35,9 @@ Nergens beter dan thuis & samen sterk: mooie combinatie!
 Groetjes,
 
 Contente Spiesse
-        
-           },
-{
+        `
+    },
+    {
         datum: "26 februari -> 3 maart 2026",
         tijd: "16:30u",
         bericht: `
@@ -69,9 +69,8 @@ Samen sterk!
         `,
         fotos: [
             "afbeeldingen/klets.JPG", 
-            
-        ],
-           },
+        ]
+    },
     {
         datum: "22 -> 25 februari 2026",
         tijd: "16:30u",
@@ -97,8 +96,9 @@ wil zeggen dat ik de fut/goesting heb om mijne laptop open te doen :-)
 Laat de zon maar schijnen! Ik blijf ondertussen
 
 Samen sterk!
-        `,
-           },{
+        `
+    },
+    {
         datum: "22 Februari 2026",
         tijd: "08:30u",
         bericht: `
@@ -119,8 +119,8 @@ Dan maar richting mijn bedde voor TV te kijken. EUh, not. Klopke nr 2 van den ha
 Wat brengt de zondag mij vandaag? Toch wel een stuk besef dat er iets aan het gebeuren is hier intern bij de Spiesse...
 
 Samen sterk!
-        `,
-           },
+        `
+    },
     {
         datum: "21 Februari 2026",
         tijd: "09:05u",
@@ -144,10 +144,10 @@ Ga nog een beetje gaan puzzelen sie, rust in 't kopke. I like it wel op die mani
 Samen sterk!
         `,
         fotos: [
-            "afbeeldingen/Puzzel 3.JPG",
-         ]
+            "afbeeldingen/Puzzel 3.JPG"
+        ]
     },
-     {
+    {
         datum: "20 Februari 2026",
         tijd: "08:11u",
         bericht: `
@@ -347,7 +347,7 @@ function laadUpdates() {
             fotoHtml += '</div>'; 
         }
 
-        // VIDEO LOGICA (Nieuw: video's zitten nu ook in een net grid)
+        // VIDEO LOGICA
         let alleVideos = [];
         if (update.videos && update.videos.length > 0) {
             alleVideos = update.videos;
@@ -357,7 +357,7 @@ function laadUpdates() {
 
         let videoHtml = '';
         if (alleVideos.length > 0) {
-            videoHtml = '<div class="video-grid">'; // Zelfde soort rooster als de foto's
+            videoHtml = '<div class="video-grid">';
             alleVideos.forEach(url => {
                 videoHtml += `
                     <video controls class="update-video" preload="metadata">
@@ -405,11 +405,3 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
-
-
-
-
-
-
-
-
