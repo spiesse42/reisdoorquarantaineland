@@ -10,6 +10,34 @@ const huidigeStatus = {
 // DEEL 2: Updates
 const updates = [
     {
+        datum: "4 maart -> 6 maart 2026",
+        tijd: "16:30u",
+        bericht: `
+Nacht 2 van ... zit er op.
+
+Nacht 2 van ...????? Ik zie het jullie al peizen: Spiesse heeft koorts en kan nie goe meer tellen :-)
+
+Neet neet, ge zijt allemaal mis. In mijn vorig verslag konden jullie al lezen dat de bloedwaarden aan het stijgen waren. Wel, de laatste dagen zijn ze
+dus heel goed gestegen waardoor het behandelend team beslist heeft dat ik THUIS verder kan en mag herstellen en revalideren!
+
+Na 2,5 week ben ik sedert woensdagmiddag terug in mijn vertrouwde omgeving. Moet zeggen: het doet deugd! De rit naar huis vroeg wel een beetje inspanning
+maar we zijn zonder vuile kleren thuisgekomen ;-) De eerste uren waren nog wa fragiel en nen goeien tuk heeft me veel deugd gedaan.
+'s Avonds dan 2 kleine porties ovenschotel gegeten en hoera, alles bleef zitten.
+
+Gisteren was ook nen goeien dag: veel gerust, korte wandeling naar apotheek en meer gegeten dan 4 dagen samen in de kliniek. Da zal mijn herstel ten goede komen:
+meerdere eetmomenten per dag waardoor ik toch aan volledige porties kom.
+
+De komende weken moet ik wel nog heel voorzichtig zijn omdat mijn immuniteit nog heel laag is. Maar met de goede ondersteuning van mijn topgezin en familie/vrienden komt
+da zeker goed. 
+
+Nergens beter dan thuis & samen sterk: mooie combinatie!
+
+Groetjes,
+
+Contente Spiesse
+        
+           },
+{
         datum: "26 februari -> 3 maart 2026",
         tijd: "16:30u",
         bericht: `
@@ -377,6 +405,7 @@ function openLightbox(url) {
 function sluitLightbox() {
     document.getElementById('lightbox').style.display = "none";
 }
+
 
 
 
